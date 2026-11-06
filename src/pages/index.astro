@@ -10,6 +10,33 @@ const numbered = posts.map((p, i) => ({ p, no: pad(i + 1) }));
 const departed = [...new Set(posts.map((p) => p.data.station))];
 const lines = stations.filter((s) => departed.includes(s.n));
 const current = posts.at(-1)?.data.station ?? 1;
+const faq = [
+  {
+    q: 'Boring But Correct là gì?',
+    a: 'Blog và kênh YouTube tiếng Việt giải thích công nghệ trong bối cảnh kinh doanh. Mỗi bài trả lời một câu hỏi về một quyết định công nghệ, luôn có cả vế kinh doanh lẫn vế công nghệ, và mọi phát biểu trong bài đều có nguồn kiểm được.',
+  },
+  {
+    q: 'Blog viết cho ai?',
+    a: 'Cho người làm ở chỗ kinh doanh gặp công nghệ: quản lý và điều hành cần thấy tác động kinh doanh của một khoản đầu tư công nghệ; BA, PM và product đứng giữa nghiệp vụ và đội kỹ thuật; kiến trúc sư và dev senior muốn hiểu phía kinh doanh.',
+  },
+  {
+    q: 'Làm sao biết thông tin trong bài là đúng?',
+    a: 'Mỗi phát biểu có một số nhỏ kèm ký hiệu trạng thái ngay cạnh câu: đã kiểm chứng, có tranh luận hoặc OPEN, dẫn tới nguồn gốc. Mỗi bài ghi ngày kiểm chứng lần cuối và có bảng nguồn đầy đủ ở cuối bài.',
+    link: { href: '/cach-kiem-chung', text: 'Cách blog kiểm chứng' },
+  },
+  {
+    q: 'Các bài được sắp xếp thế nào?',
+    a: 'Theo một tuyến sáu trạm, mỗi trạm là một chủ đề: Business, Domain, Architecture, Data, Reporting, Automation. Bài nào cũng thuộc một trạm, và các bài trong cùng trạm dẫn sang nhau.',
+  },
+  {
+    q: 'Bài có video không?',
+    a: 'Một số bài có video đi kèm trên kênh YouTube Boring But Correct. Bài là bài đọc độc lập, sâu hơn video; nhiều bài không có video.',
+  },
+  {
+    q: 'Agent AI đọc blog bằng cách nào?',
+    a: 'Mỗi bài có bản markdown cùng nội dung ở cùng đường dẫn thêm đuôi .md, gồm cả hình giải thích dạng chữ và danh sách nguồn. Danh sách mọi bài nằm ở /llms.txt.',
+  },
+];
 ---
 <Base
   title="Boring But Correct: công nghệ trong kinh doanh, giải thích rõ ràng"
@@ -17,6 +44,11 @@ const current = posts.at(-1)?.data.station ?? 1;
   jsonLd={[
     { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Boring But Correct', url: Astro.site, inLanguage: 'vi' },
     { '@context': 'https://schema.org', ...organization(Astro.site) },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
   ]}
 >
   <h1 class="sr-only">Boring But Correct: các bài theo tuyến chủ đề</h1>
@@ -56,6 +88,16 @@ const current = posts.at(-1)?.data.station ?? 1;
       </table>
     </section>
   ))}
+
+  <section class="about" aria-labelledby="ve-blog">
+    <h2 id="ve-blog">Về blog</h2>
+    {faq.map((f) => (
+      <div class="qa">
+        <h3>{f.q}</h3>
+        <p>{f.a}{f.link && <> <a href={f.link.href}>{f.link.text}</a>.</>}</p>
+      </div>
+    ))}
+  </section>
 </Base>
 
 <style>
@@ -91,6 +133,10 @@ const current = posts.at(-1)?.data.station ?? 1;
   .trip a:hover { text-decoration: underline; }
   .dek { margin: 0.35rem 0 0; font-size: var(--s-16); line-height: 1.55; color: var(--muted); max-width: 46rem; }
   tbody tr:hover td { background: var(--accent-wash); }
+  .about { margin-top: 2rem; }
+  .about .qa { max-width: 42rem; padding: 1.25rem 0; border-bottom: 1px solid var(--hair); }
+  .about h3 { font-size: var(--s-18); font-weight: 700; line-height: 1.35; margin: 0 0 0.35rem; }
+  .about p { margin: 0; font-size: var(--s-16); line-height: 1.6; }
 
   @media (max-width: 720px) {
     thead { display: none; }

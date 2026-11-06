@@ -99,7 +99,10 @@ export function rehypeSidenotes() {
     const legend = el(
       'p',
       { className: ['legend'] },
-      Object.values(STATUS).map((st) => el('span', { dataStatus: st.key }, [mark(), text(st.label)])),
+      [
+        ...Object.values(STATUS).map((st) => el('span', { dataStatus: st.key }, [mark(), text(st.label)])),
+        el('a', { href: '/cach-kiem-chung' }, [text('Cách blog kiểm chứng')]),
+      ],
     );
     section.children = section.children!.flatMap((c) => (c.tagName === 'ol' ? [legend, table] : [c]));
   };

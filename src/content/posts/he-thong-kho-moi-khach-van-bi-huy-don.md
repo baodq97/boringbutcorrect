@@ -1,6 +1,6 @@
 ---
 title: "Đổi sang hệ thống kho mới, sao khách vẫn bị hủy đơn vì hết hàng?"
-description: "Dự án đúng hạn, đúng ngân sách vẫn có thể không mang lại lợi ích nào. Bài này đặt một khoản đầu tư công nghệ lên hai trục, doanh nghiệp là gì và doanh nghiệp thay đổi thế nào, rồi đi qua sáu câu hỏi phải trả lời trước khi duyệt tiền."
+description: "Dự án đúng hạn, đúng ngân sách vẫn có thể không mang lại lợi ích. Sáu câu hỏi phải trả lời trước khi duyệt tiền cho một khoản đầu tư công nghệ."
 station: 1
 published: 2026-11-06
 verified: 2026-11-06

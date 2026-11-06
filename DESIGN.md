@@ -193,6 +193,15 @@ Link kế thừa màu chữ, gạch chân 1px xám chì lệch 0.2em; hover chuy
 ### Điều hướng chuyến
 Ba cột dưới kẻ 3px: Chuyến trước, Chuyến kế, Bảng giờ; mỗi cột là nhãn Label, link đậm có số bài mono, ngày xám. Khi không có chuyến, ghi "Đây là chuyến đầu" hoặc "Chưa khởi hành" bằng xám chì.
 
+### Chân trang
+Một hàng dưới kẻ 3px: tên kênh đậm 16px bên trái, ba icon YouTube, TikTok, RSS 20px bên phải (đường vẽ Simple Icons, CC0), vùng bấm 44px, màu mực, hover đỏ. Không có chữ giải thích; agent tìm `llms.txt` và bản `.md` qua thẻ `link` trong `head`.
+
+### Trang phụ
+Trang không phải bài (Cách blog kiểm chứng, 404) dùng cùng khung `.article`: tiêu đề Display, đoạn mở 22px, cột đọc 7/12. Trang không thuộc trạm thì không có sơ đồ tuyến và cách kẻ đầu trang 3rem. Hàng chú giải cuối mỗi bài có link tới trang Cách blog kiểm chứng.
+
+### Favicon và ảnh chia sẻ
+Favicon là một chấm trạm đỏ viền trắng trên đường metro mực, nền trắng; có bản SVG, ICO 32px và apple-touch-icon 180px. Ảnh chia sẻ mặc định 1200×630 (`/og/site.png`): kẻ 6px, tên kênh 104px, tagline, sơ đồ sáu trạm với trạm 01 đỏ. Bài có ảnh riêng thì dùng ảnh của bài.
+
 ## Do's and Don'ts
 
 ### Do:

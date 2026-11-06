@@ -1,0 +1,53 @@
+---
+import Base from '../layouts/Base.astro';
+
+const statuses = [
+  { key: 'verified', label: 'Đã kiểm chứng', text: 'Đã đối chiếu với nguồn gốc, và nguồn nói đúng điều câu văn viết.' },
+  { key: 'disputed', label: 'Có tranh luận', text: 'Các nguồn đáng tin không thống nhất. Ghi chú nêu bên nào nói gì.' },
+  { key: 'open', label: 'OPEN', text: 'Chưa tìm được nguồn gốc xác nhận. Câu được giữ vì cần cho mạch bài, và ghi rõ là chưa kiểm được.' },
+];
+const sample = '/he-thong-kho-moi-khach-van-bi-huy-don';
+---
+<Base title="Cách blog kiểm chứng | Boring But Correct" description="Mỗi phát biểu trong bài có ký hiệu nguồn ngay cạnh câu. Trang này giải thích ký hiệu, ba trạng thái và ngày kiểm chứng.">
+  <article class="article">
+    <h1>Cách blog kiểm chứng</h1>
+    <p class="dek">Mọi phát biểu và con số trong bài đều có nguồn kiểm được. Trang này giải thích cách đọc các ký hiệu.</p>
+    <div class="prose">
+      <h2>Ký hiệu cạnh câu</h2>
+      <p>Sau mỗi phát biểu có một số nhỏ màu đỏ kèm ký hiệu trạng thái. Ghi chú nguồn nằm ở lề phải ngang dòng đó; trên màn hình hẹp, ngay dưới đoạn văn. Cuối bài có bảng nguồn đầy đủ, mỗi hàng có link quay về đoạn văn.</p>
+      <p class="example"><span class="label">Ví dụ từ <a href={`${sample}#nguon-2`}>một bài</a></span>ISACA tách governance (đánh giá, định hướng, giám sát) khỏi management (lập kế hoạch, xây, vận hành, giám <span class="nw">sát).<sup class="ref" data-status="verified"><a href="#vi-du-2" aria-label="Nguồn 2, Đã kiểm chứng"><span class="mark" aria-hidden="true"></span>2</a></sup></span><span class="sn" id="vi-du-2" data-status="verified"><span class="sn-head"><span class="sn-n">2</span><span class="mark" aria-hidden="true"></span><span class="sn-status">Đã kiểm chứng</span></span><span class="sn-body"><a href="https://support.isaca.org/s/article/Governance-and-management-activities-are-the-responsibility-of-the-BoD-1597877237345">ISACA Support (2025-07-02)</a>: governance là evaluate, direct, monitor, thường thuộc hội đồng quản trị; management là plan, build, run, monitor, thuộc ban điều hành.</span></span></p>
+
+      <h2>Ba trạng thái</h2>
+      <table class="states">
+        <thead><tr><th scope="col">Trạng thái</th><th scope="col">Nghĩa là</th></tr></thead>
+        <tbody>
+          {statuses.map((s) => (
+            <tr data-status={s.key}>
+              <td class="state"><span class="mark" aria-hidden="true"></span>{s.label}</td>
+              <td>{s.text}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p>Ba ký hiệu khác nhau ở hình dạng, tròn đặc, nửa tròn và vòng rỗng, nên phân biệt được cả khi không nhìn màu.</p>
+      <p class="example"><span class="label">Ví dụ một câu OPEN</span>Khung này viết cho chi tiêu công. Dùng nó cho doanh nghiệp tư nhân là một cách mượn chưa được kiểm <span class="nw">chứng.<sup class="ref" data-status="open"><a href="#vi-du-10" aria-label="Nguồn 10, OPEN"><span class="mark" aria-hidden="true"></span>10</a></sup></span><span class="sn" id="vi-du-10" data-status="open"><span class="sn-head"><span class="sn-n">10</span><span class="mark" aria-hidden="true"></span><span class="sn-status">OPEN</span></span><span class="sn-body"><a href="https://www.gov.uk/government/publications/guidance-on-developing-business-cases">HM Treasury</a> chỉ viết cho khu vực công; chưa tìm được nguồn gốc nào đo hiệu quả của Five Case Model ở doanh nghiệp tư nhân.</span></span></p>
+
+      <h2>Nguồn gốc trước</h2>
+      <p>Nguồn được ưu tiên là bản gốc: bài báo hay nghiên cứu gốc, tài liệu chính thức của tổ chức ban hành, đặc tả. Bài tóm tắt hay bài dẫn lại chỉ dùng khi không có bản gốc. Nếu link nguồn không mở được lúc kiểm, ghi chú nói rõ.</p>
+
+      <h2>Kiểm chứng lần cuối</h2>
+      <p>Mỗi bài ghi ngày đăng và ngày kiểm chứng lần cuối, là ngày gần nhất các nguồn được đối chiếu lại. Nguồn có thể đổi phiên bản hoặc mất link; khi bài được sửa theo nguồn mới, ngày này đổi theo.</p>
+
+      <h2>Cho agent</h2>
+      <p>Mỗi bài có bản markdown cùng nội dung tại cùng đường dẫn thêm đuôi <code>.md</code>, gồm cả hình giải thích dạng chữ và danh sách nguồn. Danh sách mọi bài cho agent ở <a href="/llms.txt">/llms.txt</a>.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article { margin-top: 3rem; }
+  .states .state { white-space: nowrap; font-weight: 700; color: var(--accent); }
+  .states .mark { margin-right: 0.5rem; }
+  .example .label { display: block; font-size: var(--s-12); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+  .example .label a { color: inherit; }
+</style>

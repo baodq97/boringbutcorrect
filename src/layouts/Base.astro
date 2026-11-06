@@ -1,8 +1,12 @@
 ---
 import '../styles/global.css';
-import { social, rssIcon } from '../lib/site';
+import { social, rssIcon, verifyIcon } from '../lib/site';
 
-const follow = [...social, { name: 'RSS', url: '/rss.xml', icon: rssIcon }];
+const follow = [
+  { name: 'Cách blog kiểm chứng', url: '/cach-kiem-chung', icon: verifyIcon },
+  ...social,
+  { name: 'RSS', url: '/rss.xml', icon: rssIcon },
+];
 
 interface Props {
   title: string;
@@ -15,7 +19,7 @@ interface Props {
 }
 const { title, description, type = 'website', image, article, markdownHref, jsonLd = [] } = Astro.props;
 const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Astro.site);
-const ogImage = image && new URL(image, Astro.site);
+const ogImage = new URL(image ?? '/og/site.png', Astro.site);
 ---
 <!doctype html>
 <html lang="vi">
@@ -40,11 +44,11 @@ const ogImage = image && new URL(image, Astro.site);
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
-    {ogImage && <meta property="og:image" content={ogImage} />}
+    <meta property="og:image" content={ogImage} />
     {article && <meta property="article:published_time" content={article.published} />}
     {article && <meta property="article:modified_time" content={article.modified} />}
     {article && <meta property="article:section" content={article.section} />}
-    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    <meta name="twitter:card" content="summary_large_image" />
     {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
   </head>
   <body>

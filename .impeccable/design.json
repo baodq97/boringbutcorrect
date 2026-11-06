@@ -1,0 +1,272 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-06T00:00:00+07:00",
+  "title": "Design System: Boring But Correct",
+  "extensions": {
+    "colorMeta": {
+      "accent": {
+        "role": "primary",
+        "displayName": "Đỏ gạch",
+        "canonical": "#b53b12",
+        "tonalRamp": [
+          "oklch(15% 0.16 38)",
+          "oklch(25% 0.16 38)",
+          "oklch(37% 0.16 38)",
+          "oklch(50% 0.16 38)",
+          "oklch(62% 0.16 38)",
+          "oklch(74% 0.16 38)",
+          "oklch(85% 0.16 38)",
+          "oklch(95% 0.16 38)"
+        ]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Mực",
+        "canonical": "#1a1a1a",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(25% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(50% 0 0)",
+          "oklch(62% 0 0)",
+          "oklch(74% 0 0)",
+          "oklch(85% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "ground": {
+        "role": "neutral",
+        "displayName": "Giấy trắng",
+        "canonical": "#ffffff",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(25% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(50% 0 0)",
+          "oklch(62% 0 0)",
+          "oklch(74% 0 0)",
+          "oklch(85% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Xám chì",
+        "canonical": "#5c5c5c",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(25% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(50% 0 0)",
+          "oklch(62% 0 0)",
+          "oklch(74% 0 0)",
+          "oklch(85% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "hair": {
+        "role": "neutral",
+        "displayName": "Hairline",
+        "canonical": "#d4d4d4",
+        "tonalRamp": [
+          "oklch(15% 0 0)",
+          "oklch(25% 0 0)",
+          "oklch(37% 0 0)",
+          "oklch(50% 0 0)",
+          "oklch(62% 0 0)",
+          "oklch(74% 0 0)",
+          "oklch(85% 0 0)",
+          "oklch(95% 0 0)"
+        ]
+      },
+      "accent-wash": {
+        "role": "neutral",
+        "displayName": "Vệt đỏ nhạt",
+        "canonical": "#f7ebe6",
+        "tonalRamp": [
+          "oklch(15% 0.03 45)",
+          "oklch(25% 0.03 45)",
+          "oklch(37% 0.03 45)",
+          "oklch(50% 0.03 45)",
+          "oklch(62% 0.03 45)",
+          "oklch(74% 0.03 45)",
+          "oklch(85% 0.03 45)",
+          "oklch(95% 0.03 45)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Tiêu đề bài; 40px dưới 720px."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Tiêu đề mục và tiêu đề trạm, luôn dưới kẻ 3px."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Tiêu đề phụ, tên bài trong bảng giờ."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Chữ đọc trong cột 7/12."
+      },
+      "note": {
+        "displayName": "Note",
+        "purpose": "Ghi chú lề, chú thích hình, bảng nguồn, chân trang."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Đầu cột và tên trường, viết hoa; chỉ đứng trên dữ liệu."
+      },
+      "numeral": {
+        "displayName": "Numeral",
+        "purpose": "Chỉ cho số: số bài, ngày, giờ, số chú thích, phần trăm."
+      }
+    },
+    "shadows": [
+      {
+        "name": "arrive-halo",
+        "value": "0 0 0 0.5rem var(--accent-wash)",
+        "purpose": "Chỉ trong animation tới nơi của ghi chú lề (:target); không phải bóng đổ."
+      }
+    ],
+    "motion": [
+      {
+        "name": "arrive",
+        "value": "1.6s cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Ghi chú lề sáng lên khi được nhảy tới; tắt khi prefers-reduced-motion."
+      },
+      {
+        "name": "hover-fill",
+        "value": "background-color 0.2s ease-out",
+        "purpose": "Nút video chuyển nền mực sang đỏ gạch."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "margin-notes",
+        "value": "1100px"
+      },
+      {
+        "name": "single-column",
+        "value": "720px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Sơ đồ tuyến",
+      "kind": "nav",
+      "refersTo": "station-dot",
+      "description": "Sáu trạm chủ đề; trạm hiện tại đặc đỏ, trạm chưa có bài ghi chưa khởi hành.",
+      "html": "<ol class=\"ds-route\"><li class=\"ds-here\"><span class=\"ds-dot\"></span><span class=\"ds-no\">01</span><a href=\"#\">Business</a></li><li><span class=\"ds-dot\"></span><span class=\"ds-no\">02</span><span class=\"ds-idle\">Domain</span><small>chưa khởi hành</small></li><li><span class=\"ds-dot\"></span><span class=\"ds-no\">03</span><span class=\"ds-idle\">Architecture</span><small>chưa khởi hành</small></li></ol>",
+      "css": ".ds-route{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);position:relative;font-family:var(--sans,Overpass,system-ui,sans-serif);color:#1a1a1a}.ds-route::before{content:'';position:absolute;left:16.66%;right:16.66%;top:9px;border-top:3px solid #1a1a1a}.ds-route li{position:relative;display:grid;justify-items:center;gap:.25rem;text-align:center;line-height:1.3}.ds-dot{width:21px;height:21px;border-radius:50%;border:3px solid #1a1a1a;background:#fff;position:relative;margin-bottom:.5rem}.ds-here .ds-dot{background:#b53b12;border-color:#b53b12;transform:scale(1.35)}.ds-no{font-family:'Overpass Mono',ui-monospace,monospace;font-size:14px;color:#5c5c5c}.ds-here .ds-no,.ds-here a{color:#b53b12}.ds-route a{font-weight:700;text-decoration:none;color:inherit}.ds-route a:hover{text-decoration:underline}.ds-route a:focus-visible{outline:2px solid #b53b12;outline-offset:3px}.ds-idle{color:#5c5c5c}.ds-route small{font-size:12px;color:#5c5c5c}"
+    },
+    {
+      "name": "Hàng bảng giờ",
+      "kind": "card",
+      "refersTo": "column-label",
+      "description": "Một chuyến trong bảng giờ trang chủ: số mono, tên bài, tóm tắt, ngày.",
+      "html": "<table class=\"ds-tt\"><thead><tr><th>Số</th><th>Bài</th><th>Đăng</th></tr></thead><tbody><tr><td class=\"ds-ep\">01</td><td><a href=\"#\">Đổi sang hệ thống kho mới, sao khách vẫn bị hủy đơn?</a><p>Dự án đúng hạn vẫn có thể không mang lại lợi ích nào.</p></td><td class=\"ds-n\">06/11/2026</td></tr></tbody></table>",
+      "css": ".ds-tt{width:100%;border-collapse:collapse;font-family:Overpass,system-ui,sans-serif;color:#1a1a1a;border-top:3px solid #1a1a1a}.ds-tt th{text-align:left;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5c5c5c;padding:.75rem 1rem .5rem 0;border-bottom:1px solid #1a1a1a}.ds-tt td{padding:1.1rem 1rem 1.1rem 0;border-bottom:1px solid #d4d4d4;vertical-align:baseline;font-size:16px}.ds-tt td+td,.ds-tt th+th{border-left:1px solid #d4d4d4;padding-left:1rem}.ds-ep,.ds-n{font-family:'Overpass Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}.ds-ep{font-size:28px;font-weight:600;line-height:1}.ds-tt a{font-weight:700;font-size:22px;line-height:1.35;color:inherit;text-decoration:none}.ds-tt a:hover{text-decoration:underline;color:#b53b12}.ds-tt a:focus-visible{outline:2px solid #b53b12;outline-offset:3px}.ds-tt p{margin:.35rem 0 0;color:#5c5c5c;line-height:1.55}.ds-tt tbody tr:hover td{background:#f7ebe6}"
+    },
+    {
+      "name": "Ký hiệu nguồn và ghi chú lề",
+      "kind": "custom",
+      "refersTo": "sidenote",
+      "description": "Số chú thích đỏ dính vào từ trước, ghi chú lề với trạng thái là hình dạng ký hiệu.",
+      "html": "<p class=\"ds-p\">Porter viết rằng cốt lõi của chiến lược là chọn những gì không <span class=\"ds-nw\">làm.<sup class=\"ds-ref\"><a href=\"#\"><span class=\"ds-mark ds-v\"></span>3</a></sup></span></p><aside class=\"ds-sn\"><span class=\"ds-head\"><b>3</b><span class=\"ds-mark ds-v\"></span><span class=\"ds-st\">Đã kiểm chứng</span></span><span class=\"ds-body\">Porter (1996), What Is Strategy?, HBR.</span></aside><p class=\"ds-legend\"><span><span class=\"ds-mark ds-v\"></span>Đã kiểm chứng</span><span><span class=\"ds-mark ds-d\"></span>Có tranh luận</span><span><span class=\"ds-mark\"></span>OPEN</span></p>",
+      "css": ".ds-p{font:400 18px/1.7 Overpass,system-ui,sans-serif;color:#1a1a1a;margin:0 0 1rem}.ds-nw{white-space:nowrap}.ds-ref{font-size:12px;line-height:0;vertical-align:super}.ds-ref a{display:inline-flex;align-items:center;gap:.2em;padding:0 .15em;font-family:'Overpass Mono',ui-monospace,monospace;color:#b53b12;text-decoration:none}.ds-ref a:hover{text-decoration:underline}.ds-ref a:focus-visible{outline:2px solid #b53b12;outline-offset:3px}.ds-mark{display:inline-block;width:.62em;height:.62em;border-radius:50%;border:1.5px solid currentColor;flex:none}.ds-v{background:currentColor}.ds-d{background:linear-gradient(90deg,currentColor 50%,transparent 50%)}.ds-sn{display:block;max-width:20rem;padding-top:.4rem;border-top:1px solid #1a1a1a;font:400 14px/1.5 Overpass,system-ui,sans-serif;margin-bottom:1rem}.ds-head{display:flex;align-items:center;gap:.5rem;color:#b53b12}.ds-head b{font-family:'Overpass Mono',ui-monospace,monospace;font-weight:600}.ds-st,.ds-legend{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase}.ds-body{display:block;color:#5c5c5c}.ds-legend{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;color:#5c5c5c;font-family:Overpass,system-ui,sans-serif}.ds-legend>span{display:inline-flex;align-items:center;gap:.5rem}.ds-legend .ds-mark{color:#b53b12}"
+    },
+    {
+      "name": "Hàng meta bài",
+      "kind": "custom",
+      "refersTo": "column-label",
+      "description": "Dải trường kiểu bảng giờ dưới tiêu đề bài.",
+      "html": "<dl class=\"ds-meta\"><div><dt>Trạm</dt><dd><a href=\"#\"><span class=\"ds-no\">01</span> Business</a></dd></div><div><dt>Đăng</dt><dd class=\"ds-no\">06/11/2026</dd></div><div><dt>Đọc</dt><dd><span class=\"ds-no\">9</span> phút</dd></div></dl>",
+      "css": ".ds-meta{display:flex;flex-wrap:wrap;margin:0;border-top:3px solid #1a1a1a;border-bottom:1px solid #1a1a1a;font-family:Overpass,system-ui,sans-serif;color:#1a1a1a}.ds-meta div{padding:.6rem 2rem .7rem 0}.ds-meta div+div{padding-left:1rem;border-left:1px solid #d4d4d4}.ds-meta dt{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5c5c5c}.ds-meta dd{margin:.15rem 0 0;font-size:16px;font-weight:600}.ds-no{font-family:'Overpass Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums}.ds-meta a{color:inherit;text-decoration:underline;text-decoration-color:#d4d4d4;text-underline-offset:.2em}.ds-meta a:hover{color:#b53b12;text-decoration-color:#b53b12}.ds-meta a:focus-visible{outline:2px solid #b53b12;outline-offset:3px}"
+    },
+    {
+      "name": "Nút video",
+      "kind": "button",
+      "refersTo": "play-button",
+      "description": "Khối mực dưới ảnh 16:9; hover và focus chuyển đỏ gạch.",
+      "html": "<a class=\"ds-play\" href=\"#\"><span class=\"ds-tri\" aria-hidden=\"true\"></span>Xem video đi kèm <span class=\"ds-no\">9:20</span></a>",
+      "css": ".ds-play{display:flex;align-items:center;gap:.6rem;padding:.7rem 1.1rem;background:#1a1a1a;color:#fff;font:700 16px/1.4 Overpass,system-ui,sans-serif;text-decoration:none;transition:background-color .2s ease-out}.ds-play:hover,.ds-play:focus-visible{background:#b53b12}.ds-play:focus-visible{outline:2px solid #b53b12;outline-offset:4px}.ds-tri{width:0;height:0;border-left:12px solid currentColor;border-top:7px solid transparent;border-bottom:7px solid transparent}.ds-no{font-family:'Overpass Mono',ui-monospace,monospace;font-weight:400;opacity:.8}@media (prefers-reduced-motion:reduce){.ds-play{transition:none}}"
+    },
+    {
+      "name": "Hình giải thích: chuỗi",
+      "kind": "custom",
+      "description": "Hình HTML/CSS theo ngữ pháp kẻ 3px, tối đa một điểm đỏ, chú thích dưới kẻ 1px.",
+      "html": "<figure class=\"ds-fig\"><ol class=\"ds-chain\"><li><p class=\"ds-h\">Đầu ra</p><p>Hệ thống kho mới chạy</p></li><li><p class=\"ds-h\">Thay đổi cách làm</p><p>Kho ghi hàng xuất ngay</p></li><li class=\"ds-hit\"><p class=\"ds-h\">Lợi ích</p><p>Đơn hủy vì hết hàng giảm</p></li></ol><figcaption><b>Hình <span class=\"ds-no\">5</span></b> Từ đầu ra tới lợi ích; ví dụ là giả định.</figcaption></figure>",
+      "css": ".ds-fig{margin:0;font-family:Overpass,system-ui,sans-serif;color:#1a1a1a}.ds-chain{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:1.75rem}.ds-chain li{position:relative;border-top:3px solid #1a1a1a;padding-top:.5rem;font-size:16px;line-height:1.45}.ds-chain p{margin:0}.ds-chain li+li::before{content:'';position:absolute;left:-1.35rem;top:-8px;border-left:10px solid #1a1a1a;border-top:6.5px solid transparent;border-bottom:6.5px solid transparent}.ds-chain li.ds-hit{border-top-color:#b53b12}.ds-h{font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#5c5c5c}.ds-hit .ds-h{color:#b53b12}.ds-fig figcaption{margin-top:1.25rem;padding-top:.5rem;border-top:1px solid #1a1a1a;font-size:14px;line-height:1.55;color:#5c5c5c}.ds-fig figcaption b{color:#1a1a1a;margin-right:.6rem}.ds-no{font-family:'Overpass Mono',ui-monospace,monospace}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Sổ giờ tàu in",
+    "overview": "**Creative North Star: \"Sổ giờ tàu in\"**\n\nBlog được dựng như một cuốn sổ giờ tàu: một tuyến sáu trạm chủ đề, mỗi bài là một chuyến có số và ngày đăng thật, mỗi phát biểu mang một ký hiệu chú thích giải ở lề như ghi chú ngoại lệ của bảng giờ. Mọi khối mở bằng một đường kẻ ngang dày 3px như đầu bảng, các hàng tách nhau bằng hairline 1px. Không có gì bị nhốt trong hộp: không card, không bo góc, không bóng, không ảnh bìa.\n\nMật độ là mật độ của tài liệu tra cứu: chữ đọc lớn (18px, line-height 1.7) trong cột khoảng 68 ký tự, dữ liệu xếp thành cột có nhãn, số luôn bằng chữ mono đều nhịp. Màu gần như chỉ có đen trên trắng; đỏ gạch là tín hiệu, không phải trang trí. Trạng thái của một phát biểu là hình dạng ký hiệu, cùng ngữ pháp với chấm trạm metro, nên đọc được cả khi không phân biệt màu.\n\nHình giải thích dựng bằng HTML/CSS theo đúng ngữ pháp kẻ 3px và hairline, chữ tự xuống dòng, không ảnh raster. Nhận diện kênh (nền trắng, mực, đỏ gạch, Overpass, đường metro sáu trạm) là cam kết bắt buộc từ banner kênh.",
+    "keyCharacteristics": [
+      "Kẻ 3px mở khối, hairline 1px giữa hàng; không hộp, không bo góc, không bóng.",
+      "Đỏ gạch chỉ đánh dấu chỗ đang xét: trạm hiện tại, ký hiệu nguồn, hover/focus, một điểm trong mỗi hình.",
+      "Overpass cho chữ, Overpass Mono chỉ cho số.",
+      "Trạng thái nguồn là hình dạng: tròn đặc, nửa tròn, vòng rỗng.",
+      "Lưới 12 cột: cột đọc 7 cột, lề chú thích 5 cột."
+    ],
+    "rules": [
+      {
+        "name": "The Red Means Here Rule",
+        "body": "Đỏ gạch chỉ trỏ vào chỗ đang xét: trạm hiện tại, ký hiệu nguồn, hover/focus, và không quá một điểm trong mỗi hình. Không dùng đỏ cho tiêu đề, nhấn mạnh hay trang trí.",
+        "section": "colors"
+      },
+      {
+        "name": "The No Resting Wash Rule",
+        "body": "Vệt đỏ nhạt chỉ xuất hiện như phản hồi trạng thái (nhảy tới, hover). Trong hình giải thích, điểm đang xét được đánh dấu bằng viền hoặc chữ đỏ, không bằng nền đỏ nhạt.",
+        "section": "colors"
+      },
+      {
+        "name": "The Mono Is For Numbers Rule",
+        "body": "Overpass Mono chỉ cho số (số bài, ngày, mốc giờ, số chú thích, phần trăm). Không dùng mono cho câu chữ, tên, code block trang trí hay nhãn.",
+        "section": "typography"
+      },
+      {
+        "name": "The Label Belongs To Data Rule",
+        "body": "Nhãn chữ hoa 12px chỉ đứng làm đầu cột hoặc tên trường ngay trên dữ liệu của nó. Không đặt nhãn chữ hoa làm dòng mở trên một tiêu đề.",
+        "section": "typography"
+      },
+      {
+        "name": "The Timetable Head Rule",
+        "body": "Khối mới mở bằng kẻ ngang 3px mực; hàng trong khối tách bằng hairline 1px. Hàng tiêu đề cột ngăn với thân bảng bằng 1px mực.",
+        "section": "layout"
+      },
+      {
+        "name": "The Ink Weight Rule",
+        "body": "Thứ bậc được biểu đạt bằng độ dày nét kẻ, không bằng bóng hay nền.",
+        "section": "elevation"
+      },
+      {
+        "name": "The Circle Is A Station Rule",
+        "body": "Hình tròn chỉ dành cho chấm trạm và ký hiệu trạng thái. Không bo góc khối, nút hay ảnh.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do mở mỗi khối bằng kẻ 3px mực và tách hàng bằng hairline 1px.",
+      "Do đặt mọi con số (số bài, ngày, giờ, phần trăm, số chú thích) bằng Overpass Mono chữ số đều.",
+      "Do biểu đạt trạng thái nguồn bằng hình dạng ký hiệu (tròn đặc, nửa tròn, vòng rỗng), màu chỉ là lớp thêm.",
+      "Do dựng hình giải thích bằng HTML/CSS theo ngữ pháp kẻ của trang, chữ tự xuống dòng, và ghi rõ phần giả định trong chú thích.",
+      "Do giữ cột đọc trong 7/12 lưới và đưa chú thích ra lề phải khi màn hình từ 1100px trở lên.",
+      "Do dùng thang cỡ cố định 12, 14, 16, 18, 22, 28, 40, 56px."
+    ],
+    "donts": [
+      "Don't dùng card, hộp có nền, bo góc hay đổ bóng.",
+      "Don't dùng đỏ gạch ngoài trạm hiện tại, ký hiệu nguồn, hover/focus và một điểm đang xét trong mỗi hình.",
+      "Don't dùng vệt đỏ nhạt làm nền nghỉ, kể cả trong hình giải thích.",
+      "Don't dùng Overpass Mono cho chữ, hay một font khác ngoài Overpass và Overpass Mono.",
+      "Don't đặt nhãn chữ hoa nhỏ làm dòng mở trên tiêu đề; nhãn chỉ đứng trên dữ liệu của nó.",
+      "Don't dùng lưới bài có ảnh bìa, sidebar, hay ảnh raster cho hình giải thích.",
+      "Don't dùng ký tự hay icon font làm biểu tượng; mũi tên và play là tam giác CSS."
+    ]
+  }
+}

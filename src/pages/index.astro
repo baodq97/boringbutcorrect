@@ -1,0 +1,110 @@
+---
+import Base from '../layouts/Base.astro';
+import Route from '../components/Route.astro';
+import { getPosts, readingMinutes } from '../lib/posts';
+import { stations, pad, formatDate, isoDate } from '../lib/stations';
+import { organization } from '../lib/site';
+
+const posts = await getPosts();
+const numbered = posts.map((p, i) => ({ p, no: pad(i + 1) }));
+const departed = [...new Set(posts.map((p) => p.data.station))];
+const lines = stations.filter((s) => departed.includes(s.n));
+const current = posts.at(-1)?.data.station ?? 1;
+---
+<Base
+  title="Boring But Correct"
+  description="Business technology, explained plainly. Bài viết về chỗ kinh doanh gặp công nghệ; mỗi phát biểu có nguồn đánh dấu ngay cạnh câu."
+  jsonLd={[
+    { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Boring But Correct', url: Astro.site, inLanguage: 'vi' },
+    { '@context': 'https://schema.org', ...organization(Astro.site) },
+  ]}
+>
+  <h1 class="sr-only">Boring But Correct: các bài theo tuyến chủ đề</h1>
+  <Route current={current} departed={departed} />
+
+  {lines.length === 0 && <p class="empty">Bài đầu tiên đang được kiểm chứng.</p>}
+
+  {lines.map((s) => (
+    <section class="line" id={`tram-${pad(s.n)}`} aria-labelledby={`tram-${pad(s.n)}-h`}>
+      <h2 id={`tram-${pad(s.n)}-h`}><span class:list={['no', { here: s.n === current }]}>{pad(s.n)}</span> {s.name}</h2>
+      <table class="timetable">
+        <thead>
+          <tr>
+            <th scope="col">Số</th>
+            <th scope="col">Bài</th>
+            <th scope="col">Đăng</th>
+            <th scope="col">Kiểm chứng</th>
+            <th scope="col">Đọc</th>
+            <th scope="col">Video</th>
+          </tr>
+        </thead>
+        <tbody>
+          {numbered.filter(({ p }) => p.data.station === s.n).toReversed().map(({ p, no }) => (
+            <tr>
+              <td class="num ep">{no}</td>
+              <td class="trip">
+                <a href={`/${p.id}`}>{p.data.title}</a>
+                <p class="dek">{p.data.description}</p>
+              </td>
+              <td><time datetime={isoDate(p.data.published)}>{formatDate(p.data.published)}</time></td>
+              <td><time datetime={isoDate(p.data.verified)}>{formatDate(p.data.verified)}</time></td>
+              <td><span class="num">{readingMinutes(p.body)}</span> phút</td>
+              <td class:list={['num', { none: !p.data.video }]}>{p.data.video?.duration ?? '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))}
+</Base>
+
+<style>
+  .empty { color: var(--muted); }
+  .line { margin-bottom: 4rem; }
+  h2 {
+    font-size: var(--s-28);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+    padding-top: 0.75rem;
+    border-top: var(--rule);
+  }
+  h2 .no { font-weight: 600; }
+  h2 .here { color: var(--accent); }
+  .timetable { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-variant-numeric: tabular-nums; }
+  th {
+    text-align: left;
+    font-size: var(--s-12);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 1rem 0.5rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  td { padding: 1.1rem 1rem; border-bottom: 1px solid var(--hair); vertical-align: baseline; font-size: var(--s-16); white-space: nowrap; }
+  th + th, td + td { border-left: 1px solid var(--hair); }
+  th:first-child, td:first-child { padding-left: 0; }
+  td.ep { font-size: var(--s-28); font-weight: 600; width: 4.5rem; line-height: 1; }
+  td.trip { white-space: normal; width: 100%; }
+  .trip a { font-weight: 700; font-size: var(--s-22); line-height: 1.35; text-decoration: none; }
+  .trip a:hover { text-decoration: underline; }
+  .dek { margin: 0.35rem 0 0; font-size: var(--s-16); line-height: 1.55; color: var(--muted); max-width: 46rem; }
+  tbody tr:hover td { background: var(--accent-wash); }
+
+  @media (max-width: 720px) {
+    thead { display: none; }
+    .timetable, tbody, tr { display: block; }
+    tr { display: grid; grid-template-columns: 3.5rem 1fr; column-gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid var(--hair); }
+    td, td + td { border: 0; padding: 0; }
+    td.ep { grid-row: span 5; }
+    td:not(.ep):not(.trip) { font-size: var(--s-14); color: var(--muted); }
+    td.trip { margin-bottom: 0.5rem; }
+    td:nth-child(3)::before { content: 'Đăng '; font-family: var(--sans); }
+    td:nth-child(4)::before { content: 'Kiểm chứng '; font-family: var(--sans); }
+    td:nth-child(5)::before { content: 'Đọc '; }
+    td:nth-child(6)::before { content: 'Video '; font-family: var(--sans); }
+    .trip a { font-size: var(--s-18); }
+    td.none { display: none; }
+  }
+</style>

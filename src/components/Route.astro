@@ -1,0 +1,38 @@
+---
+import { stations, pad } from '../lib/stations';
+
+interface Props {
+  current: number;
+  compact?: boolean;
+  departed?: number[];
+}
+const { current, compact = false, departed = [] } = Astro.props;
+const here = stations.find((s) => s.n === current)!;
+---
+{compact ? (
+  <nav class="route compact" aria-label="Tuyến chủ đề">
+    <a href={`/#tram-${pad(here.n)}`} aria-label={`Trạm ${pad(here.n)} ${here.name}: xem các bài cùng trạm`}>
+      <ol aria-hidden="true">
+        {stations.map((s) => <li class:list={{ here: s.n === current }}><span class="dot"></span></li>)}
+      </ol>
+    </a>
+  </nav>
+) : (
+  <nav class="route" aria-label="Tuyến chủ đề">
+    <ol>
+      {stations.map((s) => {
+        const open = departed.includes(s.n);
+        return (
+          <li class:list={{ here: s.n === current, idle: !open }} aria-current={s.n === current ? 'step' : undefined}>
+            <span class="dot" aria-hidden="true"></span>
+            <span class="label">
+              <span class="no">{pad(s.n)}</span>
+              {open ? <a class="name" href={`#tram-${pad(s.n)}`}>{s.name}</a> : <span class="name">{s.name}</span>}
+              {!open && <span class="note">chưa khởi hành</span>}
+            </span>
+          </li>
+        );
+      })}
+    </ol>
+  </nav>
+)}

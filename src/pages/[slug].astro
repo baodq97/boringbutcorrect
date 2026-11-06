@@ -1,0 +1,192 @@
+---
+import { render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Route from '../components/Route.astro';
+import Video from '../components/Video.astro';
+import { getPosts, readingMinutes, type Post } from '../lib/posts';
+import { stations, pad, formatDate, isoDate } from '../lib/stations';
+import { organization } from '../lib/site';
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return posts.map((post, i) => ({
+    params: { slug: post.id },
+    props: {
+      post,
+      prev: posts[i - 1] && { post: posts[i - 1], no: pad(i) },
+      next: posts[i + 1] && { post: posts[i + 1], no: pad(i + 2) },
+      related: posts.filter((p) => p.data.station === post.data.station && p.id !== post.id).toReversed().slice(0, 3),
+    },
+  }));
+}
+
+const { post, prev, next, related } = Astro.props;
+const { Content, headings } = await render(post);
+const d = post.data;
+const station = stations.find((s) => s.n === d.station)!;
+const minutes = readingMinutes(post.body);
+const toc = headings.filter((h) => h.depth === 2 && h.slug !== 'footnote-label');
+const url = new URL(`/${post.id}`, Astro.site).href;
+const image = d.image ?? (d.video && `https://i.ytimg.com/vi/${d.video.id}/maxresdefault.jpg`);
+const channel = organization(Astro.site);
+const jsonLd: object[] = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: d.title,
+    description: d.description,
+    inLanguage: 'vi',
+    datePublished: isoDate(d.published),
+    dateModified: isoDate(d.verified),
+    ...(image && { image: new URL(image, Astro.site).href }),
+    mainEntityOfPage: url,
+    author: channel,
+    publisher: channel,
+  },
+];
+if (d.video) {
+  const [min, sec] = d.video.duration.split(':').map(Number);
+  jsonLd.push({
+    '@context': 'https://schema.org',
+    '@type': 'VideoObject',
+    name: d.title,
+    description: d.description,
+    thumbnailUrl: new URL(image!, Astro.site).href,
+    uploadDate: isoDate(d.published),
+    duration: `PT${min}M${sec}S`,
+    contentUrl: `https://www.youtube.com/watch?v=${d.video.id}`,
+    embedUrl: `https://www.youtube.com/embed/${d.video.id}`,
+  });
+}
+const leg = (t?: { post: Post; no: string }) => t && { href: `/${t.post.id}`, no: t.no, title: t.post.data.title, date: t.post.data.published };
+const legs = [
+  { label: 'Chuyến trước', trip: leg(prev), none: 'Đây là chuyến đầu' },
+  { label: 'Chuyến kế', trip: leg(next), none: 'Chưa khởi hành' },
+];
+---
+<Base title={`${d.title} | Boring But Correct`} description={d.description} type="article" image={image} article={{ published: isoDate(d.published), modified: isoDate(d.verified), section: station.name }} markdownHref={`/${post.id}.md`} jsonLd={jsonLd}>
+  <Route current={d.station} compact />
+  <article class="article">
+    <h1>{d.title}</h1>
+    <p class="dek">{d.description}</p>
+    <dl class="meta">
+      <div><dt>Trạm</dt><dd><a href={`/#tram-${pad(station.n)}`}><span class="no">{pad(station.n)}</span> {station.name}</a></dd></div>
+      <div><dt>Đăng</dt><dd><time datetime={isoDate(d.published)}>{formatDate(d.published)}</time></dd></div>
+      <div><dt>Kiểm chứng lần cuối</dt><dd><time datetime={isoDate(d.verified)}>{formatDate(d.verified)}</time></dd></div>
+      <div><dt>Đọc</dt><dd><span class="no">{minutes}</span> phút</dd></div>
+      {d.video && <div><dt>Video</dt><dd><a href="#video"><span class="no">{d.video.duration}</span></a></dd></div>}
+      <div><dt>Bản cho agent</dt><dd><a href={`/${post.id}.md`} type="text/markdown">Markdown</a></dd></div>
+    </dl>
+    {toc.length >= 3 && (
+      <nav class="toc" aria-labelledby="trong-bai">
+        <h2 id="trong-bai">Trong bài</h2>
+        <ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+      </nav>
+    )}
+    {d.video && <Video id={d.video.id} title={d.title} duration={d.video.duration} image={d.image} />}
+    <div class="prose">
+      <Content />
+      {d.sources.length > 0 && (
+        <section class="refs" aria-labelledby="tai-lieu">
+          <h2 id="tai-lieu">Tài liệu tham khảo</h2>
+          <ul>{d.sources.map((s) => <li><a href={s.url}>{s.title}</a></li>)}</ul>
+        </section>
+      )}
+    </div>
+  </article>
+  {related.length > 0 && (
+    <section class="related" aria-labelledby="cung-tram">
+      <h2 id="cung-tram">Cùng trạm {station.name}</h2>
+      <ul>{related.map((p) => <li><a href={`/${p.id}`}>{p.data.title}</a> <time class="no" datetime={isoDate(p.data.published)}>{formatDate(p.data.published)}</time></li>)}</ul>
+    </section>
+  )}
+  <nav class="legs" aria-label="Các chuyến khác">
+    {legs.map(({ label, trip, none }) => (
+      <div class="leg">
+        <span class="leg-label">{label}</span>
+        {trip
+          ? <a href={trip.href}><span class="no">{trip.no}</span> {trip.title}</a>
+          : <span class="leg-none">{none}</span>}
+        {trip && <time class="no" datetime={isoDate(trip.date)}>{formatDate(trip.date)}</time>}
+      </div>
+    ))}
+    <div class="leg"><span class="leg-label">Bảng giờ</span><a href={`/#tram-${pad(station.n)}`}>Tất cả các bài</a></div>
+  </nav>
+</Base>
+
+<style>
+  .article { display: grid; grid-template-columns: repeat(12, 1fr); column-gap: var(--gap); }
+  h1 {
+    grid-column: 1 / 10;
+    font-size: var(--s-56);
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    margin: 0 0 1.25rem;
+    text-wrap: balance;
+  }
+  .dek {
+    grid-column: 1 / 8;
+    font-size: var(--s-22);
+    line-height: 1.5;
+    color: var(--ink);
+    margin: 0 0 2rem;
+    text-wrap: pretty;
+  }
+  .meta {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 2.5rem;
+    border-top: var(--rule);
+    border-bottom: 1px solid var(--ink);
+  }
+  .meta div { padding: 0.6rem 2rem 0.7rem 0; }
+  .meta div + div { padding-left: 1rem; border-left: 1px solid var(--hair); }
+  dt { font-size: var(--s-12); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  dd { margin: 0.15rem 0 0; font-size: var(--s-16); font-weight: 600; }
+  dd a { text-decoration-color: var(--hair); }
+  .toc { grid-column: 1 / 8; margin: 0 0 3rem; }
+  .toc h2 { font-size: var(--s-12); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin: 0 0 0.5rem; }
+  .toc ol { margin: 0; padding: 0; list-style: none; }
+  .toc li { padding: 0.45rem 0; border-bottom: 1px solid var(--hair); font-size: var(--s-16); }
+  .toc a { text-decoration: none; font-weight: 600; }
+  .toc a:hover { text-decoration: underline; }
+  .article :global(.video), .prose { grid-column: 1 / 8; }
+  .related { margin-top: 5rem; border-top: var(--rule); padding-top: 0.75rem; }
+  .related h2 { font-size: var(--s-22); font-weight: 800; margin: 0 0 0.5rem; }
+  .related ul { list-style: none; margin: 0; padding: 0; }
+  .related li { display: flex; justify-content: space-between; gap: var(--gap); padding: 0.6rem 0; border-bottom: 1px solid var(--hair); }
+  .related a { font-weight: 700; text-decoration: none; }
+  .related a:hover { text-decoration: underline; }
+  .related time { color: var(--muted); font-size: var(--s-14); }
+  .legs {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--gap);
+    margin-top: 5rem;
+    border-top: var(--rule);
+    padding-top: 0.75rem;
+  }
+  .leg { display: grid; gap: 0.25rem; align-content: start; }
+  .leg-label { font-size: var(--s-12); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+  .leg a { font-weight: 700; text-decoration: none; line-height: 1.4; }
+  .leg a:hover { text-decoration: underline; }
+  .leg time { font-size: var(--s-14); color: var(--muted); }
+  .leg-none { color: var(--muted); }
+
+  @media (max-width: 1100px) {
+    h1, .dek, .toc { grid-column: 1 / -1; }
+    .dek, .toc { max-width: 42rem; }
+    .article :global(.video), .prose { grid-column: 1 / -1; max-width: 42rem; }
+  }
+  @media (max-width: 720px) {
+    h1 { font-size: var(--s-40); line-height: 1.12; letter-spacing: -0.01em; }
+    .dek { font-size: var(--s-18); }
+    .meta { display: grid; grid-template-columns: 1fr 1fr; }
+    .meta div { padding-right: 1rem; }
+    .meta div + div { padding-left: 0; border-left: 0; }
+    .legs { grid-template-columns: 1fr; gap: 1.25rem; }
+    .related li { flex-direction: column; gap: 0.15rem; }
+  }
+</style>

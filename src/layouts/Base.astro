@@ -1,0 +1,70 @@
+---
+import '../styles/global.css';
+import { social, rssIcon } from '../lib/site';
+
+const follow = [...social, { name: 'RSS', url: '/rss.xml', icon: rssIcon }];
+
+interface Props {
+  title: string;
+  description: string;
+  type?: 'website' | 'article';
+  image?: string;
+  article?: { published: string; modified: string; section: string };
+  markdownHref?: string;
+  jsonLd?: object[];
+}
+const { title, description, type = 'website', image, article, markdownHref, jsonLd = [] } = Astro.props;
+const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Astro.site);
+const ogImage = image && new URL(image, Astro.site);
+---
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Boring But Correct" href="/rss.xml" />
+    <link rel="describedby" type="text/plain" href="/llms.txt" />
+    <link rel="preload" href="/fonts/overpass.woff2" as="font" type="font/woff2" crossorigin />
+    {markdownHref && <link rel="alternate" type="text/markdown" href={markdownHref} />}
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content="Boring But Correct" />
+    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+    {article && <meta property="article:published_time" content={article.published} />}
+    {article && <meta property="article:modified_time" content={article.modified} />}
+    {article && <meta property="article:section" content={article.section} />}
+    <meta name="twitter:card" content={ogImage ? 'summary_large_image' : 'summary'} />
+    {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
+  </head>
+  <body>
+    <a class="skip" href="#noi-dung">Bỏ qua tới nội dung</a>
+    <div class="wrap">
+      <header class="masthead">
+        <a class="wordmark" href="/">Boring But Correct</a>
+        <p class="tagline">Business technology, explained plainly.</p>
+      </header>
+      <main id="noi-dung"><slot /></main>
+      <footer class="footer">
+        <a class="footer-name" href="/">Boring But Correct</a>
+        <ul class="follow">
+          {follow.map((s) => (
+            <li>
+              <a href={s.url} rel={s.url.startsWith('http') ? 'me' : undefined} aria-label={s.name} title={s.name}>
+                <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><path d={s.icon} /></svg>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>

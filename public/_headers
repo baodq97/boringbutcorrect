@@ -3,3 +3,8 @@
 
 /llms.txt
   Content-Type: text/plain; charset=utf-8
+
+/
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
+  Link: </sitemap-index.xml>; rel="sitemap"
+  Link: </rss.xml>; rel="alternate"; type="application/rss+xml"

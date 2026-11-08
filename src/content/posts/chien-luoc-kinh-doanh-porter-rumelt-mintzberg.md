@@ -5,6 +5,7 @@ station: 1
 published: 2026-11-08
 verified: 2026-11-08
 image: /og/ep01.jpg
+video: {id: 6UQTWtI5Eaw, duration: "5:11", episode: 1}
 sources:
   - title: "Porter, M. E. (1996). What Is Strategy? Harvard Business Review, Nov–Dec 1996"
     url: https://hbr.org/1996/11/what-is-strategy

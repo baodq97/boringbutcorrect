@@ -5,6 +5,7 @@ station: 1
 published: 2026-11-08
 verified: 2026-11-04
 image: /og/ep05.jpg
+video: {id: KetPsojYkwU, duration: "5:53", episode: 5}
 sources:
   - title: "ISO/IEC 38500:2024. Information technology — Governance of IT for the organization, ấn bản 3 (bản preview)"
     url: https://gso-sims-preview-doc-aws.s3-eu-west-1.amazonaws.com/iso-iec-38500-2024-en.html
@@ -24,11 +25,11 @@ sources:
 
 "IT governance" dễ bị hiểu là cách phòng công nghệ tự quản lý mình: quy trình duyệt yêu cầu, hội đồng kiến trúc, bảng chấm điểm dự án. Khi hai phòng tranh nhau sức làm của đội công nghệ, câu hỏi thường thành "việc này của ai". Ví dụ giả định đi kèm bài: giám đốc kinh doanh muốn làm tiếp một ứng dụng, giám đốc công nghệ muốn dạy thêm một người hiểu hệ thống kho, đội chỉ nhận thêm được một việc trong quý, và ba ngày trôi qua không ai làm gì.[^0] Bài này đọc lại hai nguồn: chuẩn ISO/IEC 38500:2024 và nghiên cứu decision rights của MIT CISR. Mục đích là trả lời hai câu: governance khác management chính xác ở đâu, và "ai quyết việc gì" nên được thiết kế thế nào.
 
-**Trả lời ngắn:** theo ISO/IEC 38500:2024, governance là hệ thống gồm chỉ đạo, giám sát và trách nhiệm giải trình (3.3); governance of IT là hệ thống qua đó việc dùng IT được quản trị (3.4); management hoàn thành mục tiêu *trong* thẩm quyền mà governance đã đặt (3.7).[^3] Đó không phải việc phòng IT tự quản: governance of IT là một domain của governance tổ chức.[^5] Câu hỏi thực dụng của governance là decision rights. Weill và Woodham định nghĩa IT governance là *"specifying the decision rights and accountability framework to encourage desirable behavior in the use of IT"*.[^7] Weill (2004) khảo sát hơn 250 doanh nghiệp ở 23 quốc gia, với năm loại quyết định và sáu archetype người quyết.[^8] Tài liệu nền (ghi chú nghiên cứu của kênh) tóm phát hiện: không có thiết kế tốt nhất chung, và governance IT nên được thiết kế để củng cố mục tiêu hiệu quả đã chọn.[^16]
+**Trả lời ngắn:** theo ISO/IEC 38500:2024, governance là hệ thống gồm chỉ đạo, giám sát và trách nhiệm giải trình (3.3); governance of IT là hệ thống qua đó việc dùng IT được quản trị (3.4); management hoàn thành mục tiêu *trong* thẩm quyền mà governance đã đặt (3.7).[^3] Đó không phải việc phòng IT tự quản: governance of IT là một domain của governance tổ chức.[^5] Câu hỏi thực dụng của governance là decision rights. Weill và Woodham định nghĩa IT governance là *"specifying the decision rights and accountability framework to encourage desirable behavior in the use of IT"*.[^7] Weill (2004) khảo sát hơn 250 doanh nghiệp ở 23 quốc gia, với năm loại quyết định và sáu archetype người quyết.[^8] Bài này tóm phát hiện: không có thiết kế tốt nhất chung, và governance IT nên được thiết kế để củng cố mục tiêu hiệu quả đã chọn.[^16]
 
 ## Gốc khái niệm: từ một chuẩn Úc tới ba ấn bản ISO
 
-Chuẩn quốc tế cho governance of IT có gốc ở Úc. ISO/IEC 38500:2008 do Standards Australia soạn từ AS 8015:2005 và được JTC 1 chấp nhận theo đường fast-track.[^6] Một số mốc chọn lọc từ mục Diễn tiến của tài liệu nền (bỏ COBIT 2019, ISO/IEC 38507:2022 và COBIT 7):[^14]
+Chuẩn quốc tế cho governance of IT có gốc ở Úc. ISO/IEC 38500:2008 do Standards Australia soạn từ AS 8015:2005 và được JTC 1 chấp nhận theo đường fast-track.[^6] Một số mốc chọn lọc (bỏ COBIT 2019, ISO/IEC 38507:2022 và COBIT 7):[^14]
 
 | Năm | Văn bản | Thay đổi chính |
 |---|---|---|
@@ -75,19 +76,26 @@ Chuẩn cũng định nghĩa monitor (3.8) là rà soát làm cơ sở cho quy�
 
 ## Ranh giới governance–management: ISO và ISACA
 
-ISACA, tổ chức đứng sau COBIT, vẽ cùng ranh giới bằng từ ngữ khác: governance là evaluate, direct, monitor; management là plan, build, run, monitor. ISACA ghi rằng ở phần lớn doanh nghiệp, governance thuộc hội đồng quản trị, còn management thuộc ban điều hành dưới CEO.[^9] Tài liệu nền diễn giải chi tiết hơn: governance bảo đảm nhu cầu của stakeholder được *evaluate* để ra mục tiêu cân bằng, *direction* được đặt qua ưu tiên và ra quyết định, *performance và compliance* được monitor; management *"plans, builds, runs and monitors activities"* theo hướng governance đặt.[^18]
+ISACA, tổ chức đứng sau COBIT, vẽ cùng ranh giới bằng từ ngữ khác: governance là evaluate, direct, monitor; management là plan, build, run, monitor. ISACA ghi rằng ở phần lớn doanh nghiệp, governance thuộc hội đồng quản trị, còn management thuộc ban điều hành dưới CEO.[^9] Diễn giải chi tiết hơn: governance bảo đảm nhu cầu của stakeholder được *evaluate* để ra mục tiêu cân bằng, *direction* được đặt qua ưu tiên và ra quyết định, *performance và compliance* được monitor; management *"plans, builds, runs and monitors activities"* theo hướng governance đặt.[^18]
+
+<figure class="fig fig-gov" aria-label="Hai tầng: governance đặt hướng và giao quyền, management làm trong phần quyền được giao và giải trình ngược lên.">
+<div class="gov-band"><p class="gov-who">Tầng trên<small>Governance</small></p><p class="gov-verbs">Engage stakeholders, evaluate, direct, monitor</p><p class="gov-out">Đặt hướng, giao quyền, đòi giải trình</p></div>
+<p class="gov-link"><span>Giao thẩm quyền</span><span>Giải trình</span></p>
+<div class="gov-band"><p class="gov-who">Tầng dưới<small>Management</small></p><p class="gov-verbs">Plan, build, run, monitor</p><p class="gov-out">Hoàn thành mục tiêu trong thẩm quyền đã được giao</p></div>
+<figcaption><span class="fig-no">Hình <span class="no">1</span></span> Hai tầng theo ISO/IEC 38500:2024 (tầng trên) và ISACA (động từ của tầng dưới).</figcaption>
+</figure>
 
 | | ISO/IEC 38500:2024 | ISACA (COBIT) |
 |---|---|---|
 | Loại nguồn | Chuẩn quốc tế, chỉ nêu nguyên tắc[^16] | Khung chi tiết hơn[^17], cần license[^12][^13] |
 | Governance | Engage stakeholders, evaluate, direct, monitor[^1][^16] | Evaluate, direct, monitor (EDM)[^9][^11] |
 | Management | Management practice (6.3), làm trong thẩm quyền governance đặt[^3][^16] | Plan, build, run, monitor[^9] |
-| Ai giữ governance | Governing body (hội đồng quản trị hoặc cấp được ủy quyền, theo tài liệu nền)[^18] | Thường là hội đồng quản trị[^9] |
+| Ai giữ governance | Governing body (hội đồng quản trị hoặc cấp được ủy quyền, theo cách đọc của bài)[^18] | Thường là hội đồng quản trị[^9] |
 | Phiên bản hiện hành | 38500:2024, ấn bản 3[^1] | COBIT 7 theo ISACA; ngày ra mắt còn mâu thuẫn[^10] |
 
-Hai nguồn đồng ý về ranh giới và lệch nhau về độ chi tiết. 38500 cho governing body nguyên tắc; COBIT cho bộ objective để vận hành. Tài liệu nền coi hai khung bổ sung cho nhau.[^19] Theo các nguồn thứ cấp, COBIT 2019 có 40 objective, gồm domain governance EDM và bốn domain management APO, BAI, DSS, MEA. Danh sách này chưa được kiểm trên nguồn của ISACA.[^11]
+Hai nguồn đồng ý về ranh giới và lệch nhau về độ chi tiết. 38500 cho governing body nguyên tắc; COBIT cho bộ objective để vận hành. Bài này coi hai khung bổ sung cho nhau.[^19] Theo các nguồn thứ cấp, COBIT 2019 có 40 objective, gồm domain governance EDM và bốn domain management APO, BAI, DSS, MEA. Danh sách này chưa được kiểm trên nguồn của ISACA.[^11]
 
-**Hệ quả cho demand management.** Tài liệu nền rút ra một phân chia thực dụng. Chấm điểm, xếp hạng và lập kế hoạch năng lực là management. Quyết định *tiêu chí*, *ngưỡng phê duyệt* và *ai được duyệt khoản nào* là governance (direct và delegation). Một hội đồng duyệt demand thường làm cả hai, nên cần ghi rõ quyền nào được ủy quyền từ đâu.[^16]
+**Hệ quả cho demand management.** Bài này rút ra một phân chia thực dụng. Chấm điểm, xếp hạng và lập kế hoạch năng lực là management. Quyết định *tiêu chí*, *ngưỡng phê duyệt* và *ai được duyệt khoản nào* là governance (direct và delegation). Một hội đồng duyệt demand thường làm cả hai, nên cần ghi rõ quyền nào được ủy quyền từ đâu.[^16]
 
 ## Decision rights: năm quyết định, sáu archetype
 
@@ -110,36 +118,45 @@ Hai nguồn đồng ý về ranh giới và lệch nhau về độ chi tiết. 3
 | Feudal | Từng đơn vị kinh doanh tự quyết |
 | Anarchy | Từng cá nhân hay nhóm nhỏ |
 
-Nguồn hai bảng: thân tài liệu nền §3; abstract WP 341 xác nhận có năm quyết định và sáu archetype.[^8][^16]
+Nguồn hai bảng: tên và câu hỏi do bài đọc từ Weill; abstract WP 341 xác nhận có năm quyết định và sáu archetype.[^8][^16]
 
-Abstract ghi: doanh nghiệp dẫn đầu về tăng trưởng phân quyền nhiều hơn, doanh nghiệp dẫn đầu về lợi nhuận tập trung quyền nhiều hơn.[^8] Tài liệu nền thêm chi tiết: nhóm tăng trưởng đặt năng lực IT trong các đơn vị kinh doanh; ở nhóm lợi nhuận, lãnh đạo kinh doanh cấp cao ra các quyết định IT lớn; không có thiết kế tốt nhất chung; governance IT nên được thiết kế để củng cố mục tiêu hiệu quả đã chọn và nối với governance các tài sản khác.[^16]
+Abstract ghi: doanh nghiệp dẫn đầu về tăng trưởng phân quyền nhiều hơn, doanh nghiệp dẫn đầu về lợi nhuận tập trung quyền nhiều hơn.[^8] Chi tiết thêm, theo cách bài này đọc nguồn: nhóm tăng trưởng đặt năng lực IT trong các đơn vị kinh doanh; ở nhóm lợi nhuận, lãnh đạo kinh doanh cấp cao ra các quyết định IT lớn; không có thiết kế tốt nhất chung; governance IT nên được thiết kế để củng cố mục tiêu hiệu quả đã chọn và nối với governance các tài sản khác.[^16]
 
 Theo cách đọc của bài, phát hiện về tăng trưởng và lợi nhuận là một tương quan trong một mẫu, không phải quan hệ nhân quả và không phải khuyến nghị cho từng công ty.[^15] Bài này, không phải nguồn, rút ra hệ quả sau. Khi một công ty có mục tiêu tăng trưởng nhưng năng lực IT hiếm, ví dụ chỉ hai người hiểu hệ thống kho, thì phân quyền xuống các phòng có thể xé nhỏ đúng thứ hiếm nhất. Mục tiêu nói một hướng, ràng buộc nói hướng kia, và nghiên cứu không phân xử giữa hai thứ ấy.[^15][^0]
 
-Ma trận năm quyết định nhân sáu archetype được tài liệu nền dùng như một công cụ vẽ hiện trạng. Ví dụ, quyết định investment có thể theo Federal, còn infrastructure theo IT Monarchy. Tài liệu nền ghi rõ ví dụ này là minh họa, không phải phát hiện của nghiên cứu.[^16]
+Ma trận năm quyết định nhân sáu archetype được bài này dùng như một công cụ vẽ hiện trạng. Ví dụ, quyết định investment có thể theo Federal, còn infrastructure theo IT Monarchy. Ví dụ này chỉ là minh họa, không phải phát hiện của nghiên cứu.[^16]
 
 ## Chỗ còn phải đọc cẩn thận
 
-- **Dữ liệu archetype có từ 2004**, trước cloud, agile và AI. Các mô hình sản phẩm và platform hiện nay đẩy nhiều quyết định xuống team. Tài liệu nền đề nghị đọc nó như khung chẩn đoán, không như benchmark hiện hành.[^17]
+- **Dữ liệu archetype có từ 2004**, trước cloud, agile và AI. Các mô hình sản phẩm và platform hiện nay đẩy nhiều quyết định xuống team. Bài đề nghị đọc nó như khung chẩn đoán, không như benchmark hiện hành.[^17]
 - **Chỉ đọc được bản preview của 38500:2024.** Foreword, Introduction, clause 1–3, mục lục và bibliography đã được kiểm; nội dung chi tiết của 11 principle và sáu element framework thì không.[^4][^16]
 - **COBIT 7 chưa rõ trạng thái.** ISACA gọi COBIT 7 là *"current and actively maintained COBIT offering"*, chỉ phát hành qua Publishing Platform.[^13] Ngày ra mắt thì mâu thuẫn: ISACA Support ghi 2026-11-19, một nguồn thứ cấp ghi 2026-10-27. Vòng đời COBIT 2019 kết thúc 2027-12-31.[^10]
 - **License hạn chế việc trích COBIT 7.** Dùng COBIT 7 trong AI systems, sản phẩm, đào tạo hay tư vấn cần license; cá nhân chỉ được dùng để tham khảo.[^12] Bài chọn không tái hiện nội dung COBIT 7 vì hạn chế ấy.
 - **Vendor framing.** ISACA vừa soạn khung, vừa bán license, chứng chỉ và đào tạo.[^17]
-- **Governance không có nghĩa là thêm hội đồng.** Tài liệu nền ghi rằng ranh giới governance–management dễ bị hiểu thành "thêm một tầng duyệt", và nhận định rằng phần lớn quyết định được delegate; governance là đặt hướng, giao quyền và đòi giải trình, không phải duyệt từng demand. Nhận định này không có dòng riêng trong bảng kiểm chứng và chưa kiểm được trong bản preview của 38500.[^17]
+- **Governance không có nghĩa là thêm hội đồng.** Ranh giới governance–management dễ bị hiểu thành "thêm một tầng duyệt", và bài này nhận định rằng phần lớn quyết định được delegate; governance là đặt hướng, giao quyền và đòi giải trình, không phải duyệt từng demand. Nhận định này không có dòng riêng trong bảng kiểm chứng và chưa kiểm được trong bản preview của 38500.[^17]
 - **Principle-based hay prescriptive.** 38500 dễ áp cho mọi tổ chức nhưng không nói làm gì vào thứ Hai. COBIT chi tiết hơn nhiều nhưng nặng, cần license và dễ thành checklist hành chính.[^17]
 
 ## Áp dụng: thiết kế quyền quyết cho sức làm của đội công nghệ
 
 Các bước dưới đây ghép 38500, ISACA và Weill. Thứ tự bước, việc coi sức làm là một khoản đầu tư, và các ngưỡng là suy luận của bài, không phải của nguồn.[^15]
 
-1. **Vẽ ma trận hiện trạng.** Năm quyết định ở hàng, archetype ở cột. Đánh dấu chỗ không ai rõ quyền; tài liệu nền đề xuất đúng bài tập này.[^16] Bài thêm: đánh dấu cả chỗ hai người cùng nghĩ quyền là của mình.[^15]
+1. **Vẽ ma trận hiện trạng.** Năm quyết định ở hàng, archetype ở cột. Đánh dấu chỗ không ai rõ quyền.[^16] Thêm nữa: đánh dấu cả chỗ hai người cùng nghĩ quyền là của mình.[^15]
 2. **Tìm nguồn thẩm quyền của từng quyết định.** Với mỗi ô, hỏi: governing body đã giao quyền này cho ai, bằng văn bản nào? Ngưỡng duyệt tiền thường đã có; quyền chia sức làm thường chưa. Câu sau là quan sát của bài.[^3][^15]
 3. **Tách ai đặt tiêu chí khỏi ai áp tiêu chí.** Tiêu chí và ngưỡng là direct và delegation; chấm điểm và xếp hạng là management.[^16]
-4. **Chọn archetype theo mục tiêu đã chọn, rồi đối chiếu với ràng buộc của chính mình**, không chép công ty khác hay chép phát hiện năm 2004 như một chuẩn. Đây là gợi ý của bài, dựa trên cách tài liệu nền tóm phát hiện và giới hạn dữ liệu 2004.[^15][^16][^17]
+4. **Chọn archetype theo mục tiêu đã chọn, rồi đối chiếu với ràng buộc của chính mình**, không chép công ty khác hay chép phát hiện năm 2004 như một chuẩn. Đây là gợi ý của bài, dựa trên cách bài này tóm phát hiện và giới hạn dữ liệu 2004.[^15][^16][^17]
 5. **Ghi rõ quyền được giao từ đâu**, kể cả khi người xếp việc là một hội đồng.[^16]
 6. **Đặt monitor là rà soát kết quả có kỳ hạn**, với thước đo được ghi trước, để làm căn cứ giữ hay sửa luật. Không biến nó thành duyệt lại từng việc.[^3][^15]
 
 Ở ví dụ mở bài, các bước dẫn tới một cách giải, cũng là giả định. Hội đồng quản trị đặt một luật: giữ lời hứa giao hàng trước, doanh thu từ việc mới sau, và giao cho tổng giám đốc quyền áp luật ấy. Hai giám đốc tự xếp việc theo luật; chỗ nào không thống nhất thì tổng giám đốc quyết ngay hôm sau.[^0]
+
+<figure class="fig fig-benefit" aria-label="Ví dụ giả định: hội đồng quản trị đặt luật, hai giám đốc xếp việc theo luật, tổng giám đốc quyết khi không thống nhất.">
+<ol class="chain">
+<li><p class="chain-h">Hội đồng quản trị</p><p>Đặt luật: giữ lời hứa giao hàng trước, doanh thu từ việc mới sau</p><p class="chain-note">Giao tổng giám đốc quyền áp luật</p></li>
+<li><p class="chain-h">Hai giám đốc</p><p>Tự xếp việc theo luật</p></li>
+<li><p class="chain-h">Tổng giám đốc</p><p>Chỗ nào không thống nhất thì quyết ngay hôm sau</p></li>
+</ol>
+<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Cách giải trong ví dụ mở bài. Công ty và luật chia là giả định.</figcaption>
+</figure>
 
 Video đi kèm (tập 05 của Boring But Correct) kể cùng chuyện về một chỗ trống và ba ngày chờ. Bài này là phần nguồn và lập luận đứng sau nó.
 
@@ -154,12 +171,12 @@ Video đi kèm (tập 05 của Boring But Correct) kể cùng chuyện về mộ
 [^8]: Verified · [Weill (2004), MIT CISR WP 341](https://cisr.mit.edu/publication/MIT_CISRwp341_HowTopPerfFirmsGovIT), abstract đọc trực tiếp: hơn 250 doanh nghiệp, 23 quốc gia; 5 quyết định; 6 archetype; tăng trưởng gắn với phân quyền, lợi nhuận gắn với tập trung. Chỉ các ý này nằm trong claim.
 [^9]: Verified (qua search snippet) · [ISACA Support (2025-07-02)](https://support.isaca.org/s/article/Governance-and-management-activities-are-the-responsibility-of-the-BoD-1597877237345): governance evaluate–direct–monitor; management plan–build–run–monitor; governance thường thuộc hội đồng quản trị, management thuộc ban điều hành.
 [^10]: OPEN, mâu thuẫn · Trạng thái COBIT 7: [ISACA IP & Licensing](https://www.isaca.org/about-us/intellectual-property-and-licensing) gọi là "current"; ISACA Support ghi ra mắt 2026-11-19; audit-academy.be (thứ cấp) ghi 2026-10-27. Vòng đời COBIT 2019 kết thúc 2027-12-31 (ISACA Support).
-[^11]: Chỉ nguồn thứ cấp (tài liệu nền ghi Verified, tin cậy trung bình) · COBIT 2019: 40 objective, EDM cùng APO, BAI, DSS, MEA (governancedocs.com; cybersigmacs.com). Tin cậy trung bình; chưa kiểm trên nguồn của ISACA.
+[^11]: Chỉ nguồn thứ cấp · COBIT 2019: 40 objective, EDM cùng APO, BAI, DSS, MEA (governancedocs.com; cybersigmacs.com). Tin cậy trung bình; chưa kiểm trên nguồn của ISACA.
 [^12]: Verified · [ISACA, Intellectual Property and Licensing](https://www.isaca.org/about-us/intellectual-property-and-licensing): dùng COBIT 7 trong AI systems, sản phẩm, đào tạo, tư vấn cần license; cá nhân chỉ dùng để tham khảo.
-[^13]: Thân tài liệu nền, §4 · COBIT 7 chỉ phát hành qua Publishing Platform, không có PDF; mọi việc dùng cho mục đích tổ chức hay thương mại cần license.
-[^14]: Thân tài liệu nền, mục Diễn tiến · Mốc AS 8015 (2005) là chuẩn đầu tiên mô tả governance của ICT mà không mô tả hệ thống quản lý; nhận định "6 principles + E-D-M đã cũ" là của tài liệu nền.
+[^13]: Đọc từ nguồn, chưa kiểm riêng · COBIT 7 chỉ phát hành qua Publishing Platform, không có PDF; mọi việc dùng cho mục đích tổ chức hay thương mại cần license.
+[^14]: Đọc từ nguồn, chưa kiểm riêng · Mốc AS 8015 (2005) là chuẩn đầu tiên mô tả governance của ICT mà không mô tả hệ thống quản lý; nhận định "6 principles + E-D-M đã cũ" là của bài.
 [^15]: Suy luận của bài · Coi sức làm là một khoản đầu tư theo 3.6; cách đọc monitor; hệ quả "mục tiêu tăng trưởng nhưng năng lực hiếm"; quan sát "ngưỡng tiền thường có, quyền chia sức làm thường chưa"; thứ tự các bước áp dụng.
-[^16]: Thân tài liệu nền, §1–§3 và Bài tập · Ba công cụ của chuẩn; model 6.2 và 6.3; hai bảng của Weill với tên quyết định, câu hỏi, tên archetype; phát hiện chính như tài liệu nền tóm (không có thiết kế tốt nhất chung, chi tiết của nhóm tăng trưởng và nhóm lợi nhuận, thiết kế để củng cố mục tiêu); hệ quả cho demand management (tiêu chí, ngưỡng, ủy quyền là governance; chấm điểm, xếp hạng là management; ghi rõ quyền ủy quyền từ đâu); ví dụ Federal và IT Monarchy là minh họa; bài tập vẽ ma trận. Đây là cách tài liệu nền đọc nguồn, không có dòng riêng trong bảng kiểm chứng.
-[^17]: Thân tài liệu nền, mục Đánh đổi · Dữ liệu 2004 trước cloud, agile, AI, đọc như khung chẩn đoán; vendor framing của ISACA; governance không phải thêm hội đồng, phần lớn quyết định được delegate; principle-based và prescriptive. Đây là nhận định của tài liệu nền.
-[^18]: Thân tài liệu nền, Tổng quan và §1 · Governance thuộc governing body (hội đồng quản trị hoặc cấp được ủy quyền); diễn giải chi tiết ranh giới của ISACA và câu trích "plans, builds, runs and monitors activities".
-[^19]: Thân tài liệu nền, §4 · "Khung COBIT và ISO/IEC 38500 bổ sung cho nhau: 38500 là nguyên tắc cho governing body, còn COBIT là bộ objective chi tiết để vận hành."
+[^16]: Cách bài đọc nguồn, chưa kiểm riêng · Ba công cụ của chuẩn; model 6.2 và 6.3; hai bảng của Weill với tên quyết định, câu hỏi, tên archetype; phát hiện chính như bài tóm (không có thiết kế tốt nhất chung, chi tiết của nhóm tăng trưởng và nhóm lợi nhuận, thiết kế để củng cố mục tiêu); hệ quả cho demand management (tiêu chí, ngưỡng, ủy quyền là governance; chấm điểm, xếp hạng là management; ghi rõ quyền ủy quyền từ đâu); ví dụ Federal và IT Monarchy là minh họa; bài tập vẽ ma trận.
+[^17]: Nhận định của bài · Dữ liệu 2004 trước cloud, agile, AI, đọc như khung chẩn đoán; vendor framing của ISACA; governance không phải thêm hội đồng, phần lớn quyết định được delegate; principle-based và prescriptive.
+[^18]: Đọc từ nguồn, chưa kiểm riêng · Governance thuộc governing body (hội đồng quản trị hoặc cấp được ủy quyền); diễn giải chi tiết ranh giới của ISACA và câu trích "plans, builds, runs and monitors activities".
+[^19]: Nhận định của bài · Khung COBIT và ISO/IEC 38500 bổ sung cho nhau: 38500 là nguyên tắc cho governing body, còn COBIT là bộ objective chi tiết để vận hành.

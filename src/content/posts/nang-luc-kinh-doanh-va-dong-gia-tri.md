@@ -5,6 +5,7 @@ station: 1
 published: 2026-11-08
 verified: 2026-11-04
 image: /og/ep02.jpg
+video: {id: JJAdjHwJATQ, duration: "5:21", episode: 2}
 sources:
   - title: "Business Architecture Guild (2026). BIZBOK Guide v15, Part 1: Introduction"
     url: https://cdn.ymaws.com/www.businessarchitectureguild.org/resource/resmgr/bizbok15/BIZBOKv15_introduction.pdf
@@ -27,6 +28,14 @@ Khi đội công nghệ chỉ nhận thêm được một dự án mà có bốn
 ## Kiến trúc nghiệp vụ: bốn view lõi và một vành ngoài đổi nhanh hơn
 
 Định nghĩa được nhiều hiệp hội cùng thông qua (FEAPO, 2017) mô tả kiến trúc nghiệp vụ là một view đa chiều về capability, việc chuyển giao giá trị đầu cuối, thông tin và cơ cấu tổ chức, cùng quan hệ của chúng với chiến lược, sản phẩm, chính sách, initiative và stakeholder.[^1] BIZBOK v15 tách các domain ấy thành hai vòng. Vòng lõi gồm capability, value stream, organization và information, được coi là tương đối ổn định. Vành ngoài gồm stakeholder, strategy, policy, product, initiative và metric, thay đổi nhanh hơn.[^2]
+
+<figure class="fig fig-day" aria-label="Hai vòng domain của kiến trúc nghiệp vụ: vành ngoài đổi nhanh hơn, vòng lõi tương đối ổn định.">
+<ol class="tower">
+<li>Vành ngoài: đổi nhanh hơn<small>stakeholder, strategy, policy, product, initiative, metric</small></li>
+<li>Vòng lõi: tương đối ổn định<small>capability, value stream, organization, information</small></li>
+</ol>
+<figcaption><span class="fig-no">Hình <span class="no">1</span></span> Các domain của kiến trúc nghiệp vụ theo BIZBOK v15. Độ ổn định ở đây là lập luận của nguồn, không phải số đo.</figcaption>
+</figure>
 
 Lập luận về độ ổn định dựa trên một ví dụ, không dựa trên dữ liệu đo. BIZBOK lấy một hãng bảo hiểm trăm năm tuổi: hãng ấy vẫn có cùng các capability (Customer Management, Insurance Policy Management, Claims Management), cùng value stream *Settle Claim*, cùng loại thông tin (Customer, Policy, Claim). Thứ đổi là cách tự động hóa, và các *instance* của sản phẩm, stakeholder, chiến lược.[^2] Homann (2006) nói cùng ý: capability "relatively stable", còn cách hiện thực nó "far less stable".[^3] Đây là lập luận của các nguồn, không phải kết quả thực nghiệm. Bài này chưa tìm thấy nghiên cứu nào đo độ ổn định của capability map qua thời gian.[^4]
 
@@ -80,7 +89,7 @@ BACM viết thẳng: *"Capabilities support ValueStreamStages"*.[^9] Bản đồ
 <li class="hit">Ứng dụng: hệ thống kho và hệ thống bán hàng cùng giữ con số tồn kho<small>hai ứng dụng chồng nhau trên một capability</small></li>
 <li>Process, tổ chức<small>thế nào, kém ổn định hơn</small></li>
 </ol>
-<figcaption><span class="fig-no">Hình <span class="no">1</span></span> Map chéo cho một đơn hàng. Capability đứng dưới giai đoạn nó hỗ trợ; ứng dụng và process là phần hiện thực. Dòng đỏ là chỗ hai ứng dụng cùng tự động hóa một capability.</figcaption>
+<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Map chéo cho một đơn hàng. Capability đứng dưới giai đoạn nó hỗ trợ; ứng dụng và process là phần hiện thực. Dòng đỏ là chỗ hai ứng dụng cùng tự động hóa một capability.</figcaption>
 </figure>
 
 Ba điểm của map chéo đáng giữ khi vẽ:

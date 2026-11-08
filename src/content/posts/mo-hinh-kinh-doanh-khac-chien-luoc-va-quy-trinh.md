@@ -5,6 +5,7 @@ station: 1
 published: 2026-11-08
 verified: 2026-11-04
 image: /og/ep03.jpg
+video: {id: PwAZOpCxsIw, duration: "5:12", episode: 3}
 sources:
   - title: "Osterwalder, A. (2004). The Business Model Ontology: A Proposition in a Design Science Approach. Luận án tiến sĩ, HEC, Université de Lausanne"
     url: https://www.csi.im/pub/BMcanvas/2004-Osterwalder_PhD_BM_Ontology.pdf
@@ -30,11 +31,14 @@ Từ định nghĩa này, luận án dựng một ontology gồm bốn trụ (pi
 
 Osterwalder (Figure 6) xếp ba lớp, ở ba mức trừu tượng khác nhau quanh cùng một câu hỏi: công ty kiếm tiền thế nào.[^4]
 
-| Mức | Lớp | Nội dung |
-|---|---|---|
-| Planning | Strategic layer | tầm nhìn, mục tiêu |
-| Architectural | Business model layer | logic kiếm tiền |
-| Implementation | Process layer | tổ chức và quy trình làm việc |
+<figure class="fig fig-gov" aria-label="Ba lớp xếp chồng: chiến lược, business model, quy trình; business model dịch chiến lược xuống và đánh giá chiến lược ngược lên.">
+<div class="gov-band"><p class="gov-who">Chiến lược<small>Planning</small></p><p class="gov-verbs">Strategic layer</p><p class="gov-out">Tầm nhìn, mục tiêu</p></div>
+<p class="gov-link"><span>Dịch thành bản thiết kế</span><span>Đánh giá chiến lược còn đúng không</span></p>
+<div class="gov-band"><p class="gov-who">Business model<small>Architectural</small></p><p class="gov-verbs">Business model layer</p><p class="gov-out">Logic kiếm tiền</p></div>
+<p class="gov-link"><span>Thành hình thái vật chất</span><span aria-hidden="true" style="visibility:hidden"></span></p>
+<div class="gov-band"><p class="gov-who">Quy trình<small>Implementation</small></p><p class="gov-verbs">Process layer</p><p class="gov-out">Tổ chức và quy trình làm việc</p></div>
+<figcaption><span class="fig-no">Hình <span class="no">1</span></span> Ba lớp theo Figure 6 của Osterwalder, quanh cùng một câu hỏi: công ty kiếm tiền thế nào.</figcaption>
+</figure>
 
 Quan hệ giữa các lớp đi theo hai chiều. Từ trên xuống, business model *dịch* chiến lược thành một bản thiết kế. Từ dưới lên, business model là chỗ để *đánh giá* chiến lược còn đúng không.[^4] Với lớp dưới, luận án gọi tổ chức (phòng ban, đơn vị, quy trình) là *hình thái vật chất* của business model.[^4] Ví dụ trong luận án là Compaq: hãng thêm kênh bán trực tiếp qua Internet nhưng không chỉnh tổ chức, nên các nhà bán lại (reseller) của chính hãng phản ứng vì bị cạnh tranh.[^4] Bài học không phải "đừng bán trực tiếp", mà là: đổi một ô của business model mà không đổi hình thái vật chất của nó thì hai phần của công ty sẽ va nhau.
 
@@ -71,9 +75,19 @@ Hệ quả cho danh mục dự án là suy luận của bài này, không phải
 | Financial Aspects | Cost Structure | Cost Structure |
 | | Revenue Model | Revenue Streams |
 
-Hầu hết tên đã đổi, có chỗ chỉ thêm số nhiều; tài liệu nền (ghi chú nghiên cứu của kênh) của bài đếm sáu trên chín tên khác về nghĩa.[^7] Hai ánh xạ trong bảng là suy luận, chưa có nguồn nói thẳng. Value Configuration ứng với Key Activities, và Capability ứng với Key Resources: trong ontology, capability được tạo ra từ resource, nên hai thứ không trùng nhau.[^7] Ô thứ chín trên canvas gốc tên "Cost Structure", số ít.[^8] Mẫu canvas của Strategyzer in dòng giấy phép CC BY-SA 3.0, nên bản thân mẫu được chia sẻ và dùng lại theo điều kiện giấy phép ấy; điều này không áp cho sách, khóa học hay công cụ trả phí của Strategyzer.[^9]
+Hầu hết tên đã đổi, có chỗ chỉ thêm số nhiều; theo cách đếm của bài, sáu trên chín tên khác về nghĩa.[^7] Hai ánh xạ trong bảng là suy luận, chưa có nguồn nói thẳng. Value Configuration ứng với Key Activities, và Capability ứng với Key Resources: trong ontology, capability được tạo ra từ resource, nên hai thứ không trùng nhau.[^7] Ô thứ chín trên canvas gốc tên "Cost Structure", số ít.[^8] Mẫu canvas của Strategyzer in dòng giấy phép CC BY-SA 3.0, nên bản thân mẫu được chia sẻ và dùng lại theo điều kiện giấy phép ấy; điều này không áp cho sách, khóa học hay công cụ trả phí của Strategyzer.[^9]
 
 Strategyzer mô tả cách đọc canvas theo hai nửa. Nửa phải là thị trường (khách, kênh, quan hệ), nửa trái là những gì cần để phục vụ thị trường đó (việc chính, nguồn lực, đối tác), và giá trị đưa cho khách nằm giữa. Hai ô tiền ở dưới cùng chỉ có nghĩa khi được đọc cùng bảy ô phía trên.[^10] Đọc theo cách đó, đổi ô khách hiếm khi là thay đổi cục bộ: cần kiểm từng ô kênh, việc chính và cấu trúc chi phí xem có phải đổi theo không.
+
+<figure class="fig fig-kernel" aria-label="Canvas đọc theo hai nửa: bên trái là thứ cần để phục vụ thị trường, giữa là giá trị, bên phải là thị trường; hai ô tiền nằm dưới.">
+<ol class="kernel">
+<li><p class="kernel-h">Nửa trái</p><p class="kernel-def">Thứ cần để phục vụ thị trường</p><p class="kernel-ex">Việc chính, nguồn lực, đối tác</p></li>
+<li><p class="kernel-h">Ở giữa</p><p class="kernel-def">Điều đưa cho khách</p><p class="kernel-ex">Giá trị</p></li>
+<li><p class="kernel-h">Nửa phải</p><p class="kernel-def">Thị trường</p><p class="kernel-ex">Khách, kênh, quan hệ</p></li>
+</ol>
+<p class="kernel-cost"><strong>Hai ô tiền</strong> Chi phí và doanh thu nằm dưới cùng, và chỉ có nghĩa khi đọc cùng bảy ô phía trên.</p>
+<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Cách Strategyzer mô tả việc đọc canvas theo hai nửa.</figcaption>
+</figure>
 
 ## Một canvas cho một business model
 

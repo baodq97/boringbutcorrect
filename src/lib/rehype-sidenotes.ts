@@ -40,8 +40,10 @@ export function rehypeSidenotes() {
     let section: Node | undefined;
     const notes = new Map<string, ReturnType<typeof parseNote>>();
     const refs: { sup: Node; parent: Node; id: string; n: string }[] = [];
+    const parents = new Map<Node, Node>();
 
     walk(tree, (node, parent) => {
+      if (parent) parents.set(node, parent);
       if (node.tagName === 'section' && node.properties && 'dataFootnotes' in node.properties) section = node;
       if (node.tagName === 'li' && String(node.properties?.id ?? '').startsWith('user-content-fn-')) {
         notes.set(String(node.properties!.id), parseNote(node));
@@ -81,7 +83,12 @@ export function rehypeSidenotes() {
         ]),
         el('span', { className: ['sn-body'] }, note.content.map(clone)),
       ]);
-      parent.children!.splice(parent.children!.indexOf(anchor) + 1, 0, side);
+      // A margin note floated inside a table cell lands on the table's text, so it goes just before the table.
+      let table: Node | undefined = parent;
+      while (table && table.tagName !== 'table') table = parents.get(table);
+      const host = table && parents.get(table);
+      if (table && host) host.children!.splice(host.children!.indexOf(table), 0, side);
+      else parent.children!.splice(parent.children!.indexOf(anchor) + 1, 0, side);
     }
 
     const rows = [...notes.entries()].map(([id, note], i) =>

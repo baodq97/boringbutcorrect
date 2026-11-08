@@ -60,6 +60,20 @@ Ba chi tiết trong các định nghĩa này thường bị bỏ qua.
 
 **"Use of IT" gồm cả cầu và cung.** Định nghĩa 3.9 ghi rõ use of IT gồm *demand for* và *supply of* IT.[^3] Theo cách đọc của bài, governance of IT vì thế bao cả phía yêu cầu công nghệ, thường là các phòng kinh doanh, chứ không chỉ phía cung cấp là phòng IT.[^15]
 
+<figure class="fig" aria-label="Governance of IT nằm bên trong governance của tổ chức, và bao cả hai phía: phía cầu công nghệ và phía cung công nghệ.">
+<div class="nest">
+<p class="nest-t">Governance của tổ chức<small>ISO 37000, 11 principle</small></p>
+<div class="nest">
+<p class="nest-t">Governance of IT<small>ISO/IEC 38500:2024, một domain bên trong, 11 principle trùng tên</small></p>
+<div class="nest-2">
+<p class="vmap-c">Cầu (demand for IT)<small>các phòng yêu cầu công nghệ</small></p>
+<p class="vmap-c">Cung (supply of IT)<small>phòng IT và bên cung cấp</small></p>
+</div>
+</div>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">1</span></span> Phạm vi của governance of IT theo ISO/IEC 38500:2024. Việc xếp các phòng kinh doanh vào phía cầu là cách đọc của bài.</figcaption>
+</figure>
+
 **Investment không chỉ là tiền.** 3.6 nói "allocation of resources", không nói "of money".[^3] Theo cách đọc của bài, sức làm của một đội công nghệ là một nguồn lực, nên chia nó cho việc này hay việc kia cũng là một quyết định đầu tư, dù không có đồng nào được chi thêm.[^15]
 
 ### Ba công cụ của chuẩn
@@ -78,11 +92,26 @@ Chuẩn cũng định nghĩa monitor (3.8) là rà soát làm cơ sở cho quy�
 
 ISACA, tổ chức đứng sau COBIT, vẽ cùng ranh giới bằng từ ngữ khác: governance là evaluate, direct, monitor; management là plan, build, run, monitor. ISACA ghi rằng ở phần lớn doanh nghiệp, governance thuộc hội đồng quản trị, còn management thuộc ban điều hành dưới CEO.[^9] Diễn giải chi tiết hơn: governance bảo đảm nhu cầu của stakeholder được *evaluate* để ra mục tiêu cân bằng, *direction* được đặt qua ưu tiên và ra quyết định, *performance và compliance* được monitor; management *"plans, builds, runs and monitors activities"* theo hướng governance đặt.[^18]
 
-<figure class="fig fig-gov" aria-label="Hai tầng: governance đặt hướng và giao quyền, management làm trong phần quyền được giao và giải trình ngược lên.">
-<div class="gov-band"><p class="gov-who">Tầng trên<small>Governance</small></p><p class="gov-verbs">Engage stakeholders, evaluate, direct, monitor</p><p class="gov-out">Đặt hướng, giao quyền, đòi giải trình</p></div>
-<p class="gov-link"><span>Giao thẩm quyền</span><span>Giải trình</span></p>
-<div class="gov-band"><p class="gov-who">Tầng dưới<small>Management</small></p><p class="gov-verbs">Plan, build, run, monitor</p><p class="gov-out">Hoàn thành mục tiêu trong thẩm quyền đã được giao</p></div>
-<figcaption><span class="fig-no">Hình <span class="no">1</span></span> Hai tầng theo ISO/IEC 38500:2024 (tầng trên) và ISACA (động từ của tầng dưới).</figcaption>
+<figure class="fig" aria-label="Hai tầng. Tầng governance gồm engage stakeholders, evaluate, direct, monitor. Tầng management gồm plan, build, run, monitor. Thẩm quyền đi xuống, giải trình đi lên.">
+<div class="vmap">
+<p class="vmap-l">Governance<small>tầng trên</small></p>
+<p class="vmap-s">Engage<small>stakeholders</small></p>
+<p class="vmap-s">Evaluate<small>đánh giá</small></p>
+<p class="vmap-s">Direct<small>chỉ đạo</small></p>
+<p class="vmap-s">Monitor<small>theo dõi</small></p>
+<span class="vmap-lgap"></span>
+<p class="vmap-a vmap-w">Đặt hướng, giao quyền, đòi giải trình</p>
+<span class="vmap-lgap"></span>
+<p class="gov-link vmap-w"><span>Giao thẩm quyền</span><span>Giải trình kết quả, mức tuân thủ</span></p>
+<p class="vmap-l">Management<small>tầng dưới</small></p>
+<p class="vmap-s">Plan<small>kế hoạch</small></p>
+<p class="vmap-s">Build<small>làm</small></p>
+<p class="vmap-s">Run<small>vận hành</small></p>
+<p class="vmap-s">Monitor<small>theo dõi</small></p>
+<span class="vmap-lgap"></span>
+<p class="vmap-a vmap-w">Hoàn thành mục tiêu trong thẩm quyền đã được giao</p>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Hai tầng theo ISO/IEC 38500:2024 (tầng trên) và ISACA (động từ của tầng dưới). Cả hai tầng đều có monitor, nhưng tầng dưới chỉ theo dõi trong phần quyền được giao.</figcaption>
 </figure>
 
 | | ISO/IEC 38500:2024 | ISACA (COBIT) |
@@ -96,6 +125,22 @@ ISACA, tổ chức đứng sau COBIT, vẽ cùng ranh giới bằng từ ngữ k
 Hai nguồn đồng ý về ranh giới và lệch nhau về độ chi tiết. 38500 cho governing body nguyên tắc; COBIT cho bộ objective để vận hành. Bài này coi hai khung bổ sung cho nhau.[^19] Theo các nguồn thứ cấp, COBIT 2019 có 40 objective, gồm domain governance EDM và bốn domain management APO, BAI, DSS, MEA. Danh sách này chưa được kiểm trên nguồn của ISACA.[^11]
 
 **Hệ quả cho demand management.** Bài này rút ra một phân chia thực dụng. Chấm điểm, xếp hạng và lập kế hoạch năng lực là management. Quyết định *tiêu chí*, *ngưỡng phê duyệt* và *ai được duyệt khoản nào* là governance (direct và delegation). Một hội đồng duyệt demand thường làm cả hai, nên cần ghi rõ quyền nào được ủy quyền từ đâu.[^16]
+
+<figure class="fig" aria-label="Trong việc chọn yêu cầu nào làm trước, governance đặt tiêu chí, ngưỡng phê duyệt và ai được duyệt khoản nào. Management chấm điểm, xếp hạng và lập kế hoạch năng lực. Một hội đồng duyệt thường làm cả hai.">
+<div class="vmap vmap-three">
+<p class="vmap-l">Governance<small>đặt luật</small></p>
+<p class="vmap-c">Tiêu chí chấm</p>
+<p class="vmap-c">Ngưỡng phê duyệt</p>
+<p class="vmap-c">Ai được duyệt khoản nào</p>
+<p class="vmap-l">Management<small>áp luật</small></p>
+<p class="vmap-a">Chấm điểm</p>
+<p class="vmap-a">Xếp hạng</p>
+<p class="vmap-a">Lập kế hoạch năng lực</p>
+<p class="vmap-l">Hội đồng duyệt<small>thường làm cả hai</small></p>
+<p class="vmap-c vmap-w hit">Phải ghi rõ quyền nào được giao từ đâu</p>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">3</span></span> Cùng một việc chọn yêu cầu, hai loại quyết định. Cách chia này do bài rút ra từ các định nghĩa, không phải danh sách của nguồn.</figcaption>
+</figure>
 
 ## Decision rights: năm quyết định, sáu archetype
 
@@ -126,6 +171,29 @@ Theo cách đọc của bài, phát hiện về tăng trưởng và lợi nhuậ
 
 Ma trận năm quyết định nhân sáu archetype được bài này dùng như một công cụ vẽ hiện trạng. Ví dụ, quyết định investment có thể theo Federal, còn infrastructure theo IT Monarchy. Ví dụ này chỉ là minh họa, không phải phát hiện của nghiên cứu.[^16]
 
+<figure class="fig" aria-label="Ma trận năm loại quyết định nhân sáu archetype cho công ty giả định. Vai trò công nghệ do lãnh đạo kinh doanh quyết. Kiến trúc và hạ tầng do lãnh đạo IT quyết. Nhu cầu ứng dụng do từng đơn vị tự quyết. Hàng đầu tư chưa ghi ai quyết.">
+<div class="dmx">
+<span></span>
+<p class="dmx-h">Business Monarchy</p>
+<p class="dmx-h">IT Monarchy</p>
+<p class="dmx-h">Federal</p>
+<p class="dmx-h">Duopoly</p>
+<p class="dmx-h">Feudal</p>
+<p class="dmx-h">Anarchy</p>
+<p class="dmx-n">Vai trò công nghệ<small>IT principles</small></p>
+<span class="dmx-c on"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span>
+<p class="dmx-n">Kiến trúc<small>IT architecture</small></p>
+<span class="dmx-c"></span><span class="dmx-c on"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span>
+<p class="dmx-n">Hạ tầng<small>IT infrastructure</small></p>
+<span class="dmx-c"></span><span class="dmx-c on"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span>
+<p class="dmx-n">Nhu cầu ứng dụng<small>Business application needs</small></p>
+<span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c"></span><span class="dmx-c on"></span><span class="dmx-c"></span>
+<p class="dmx-n">Đầu tư<small>IT investment</small></p>
+<p class="dmx-r">Ô chưa ghi tên ai: chỗ trống của quý nằm ở đây</p>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">4</span></span> Ma trận của Weill dùng để vẽ hiện trạng, điền cho công ty giả định lúc mở bài. Các chấm là giả định. Hàng đỏ: chỗ trống của quý là một quyết định đầu tư, và chưa ai được giao.</figcaption>
+</figure>
+
 ## Chỗ còn phải đọc cẩn thận
 
 - **Dữ liệu archetype có từ 2004**, trước cloud, agile và AI. Các mô hình sản phẩm và platform hiện nay đẩy nhiều quyết định xuống team. Bài đề nghị đọc nó như khung chẩn đoán, không như benchmark hiện hành.[^17]
@@ -149,13 +217,25 @@ Các bước dưới đây ghép 38500, ISACA và Weill. Thứ tự bước, vi�
 
 Ở ví dụ mở bài, các bước dẫn tới một cách giải, cũng là giả định. Hội đồng quản trị đặt một luật: giữ lời hứa giao hàng trước, doanh thu từ việc mới sau, và giao cho tổng giám đốc quyền áp luật ấy. Hai giám đốc tự xếp việc theo luật; chỗ nào không thống nhất thì tổng giám đốc quyết ngay hôm sau.[^0]
 
-<figure class="fig fig-benefit" aria-label="Ví dụ giả định: hội đồng quản trị đặt luật, hai giám đốc xếp việc theo luật, tổng giám đốc quyết khi không thống nhất.">
-<ol class="chain">
-<li><p class="chain-h">Hội đồng quản trị</p><p>Đặt luật: giữ lời hứa giao hàng trước, doanh thu từ việc mới sau</p><p class="chain-note">Giao tổng giám đốc quyền áp luật</p></li>
-<li><p class="chain-h">Hai giám đốc</p><p>Tự xếp việc theo luật</p></li>
-<li><p class="chain-h">Tổng giám đốc</p><p>Chỗ nào không thống nhất thì quyết ngay hôm sau</p></li>
-</ol>
-<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Cách giải trong ví dụ mở bài. Công ty và luật chia là giả định.</figcaption>
+<figure class="fig" aria-label="Trước và sau trong ví dụ mở bài. Trước: chưa có luật chia, hai giám đốc tranh một chỗ trống, ba ngày không ai làm gì. Sau: hội đồng quản trị đặt luật, tổng giám đốc áp luật, hai giám đốc tự xếp việc, bất đồng được quyết ngay hôm sau.">
+<div class="vmap vmap-two">
+<span class="vmap-lgap"></span>
+<p class="vmap-s">Trước</p>
+<p class="vmap-s">Sau</p>
+<p class="vmap-l">Luật chia</p>
+<p class="vmap-a">Chưa ghi ở đâu</p>
+<p class="vmap-a">Hội đồng quản trị đặt: giữ lời hứa giao hàng trước, doanh thu từ việc mới sau</p>
+<p class="vmap-l">Ai áp luật</p>
+<p class="vmap-a">Chưa giao ai; tổng giám đốc bảo hai người tự thống nhất</p>
+<p class="vmap-a">Tổng giám đốc, do hội đồng quản trị giao quyền</p>
+<p class="vmap-l">Ai xếp việc</p>
+<p class="vmap-a">Hai giám đốc tranh cùng một chỗ trống</p>
+<p class="vmap-a">Hai giám đốc tự xếp theo luật</p>
+<p class="vmap-l">Khi bất đồng</p>
+<p class="vmap-a hit">Ba ngày không ai làm gì</p>
+<p class="vmap-a">Tổng giám đốc quyết ngay hôm sau</p>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">5</span></span> Cách giải trong ví dụ mở bài. Công ty và luật chia là giả định.</figcaption>
 </figure>
 
 Video đi kèm (tập 05 của Boring But Correct) kể cùng chuyện về một chỗ trống và ba ngày chờ. Bài này là phần nguồn và lập luận đứng sau nó.

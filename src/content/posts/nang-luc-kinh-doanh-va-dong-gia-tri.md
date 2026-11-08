@@ -55,6 +55,22 @@ Ba nguồn chính dùng ba câu chữ khác nhau nhưng chung một lõi: capabi
 
 BACM 1.1 biến định nghĩa này thành ràng buộc mô hình hóa. Capability phân rã theo một cây duy nhất và không được *specialize*. Muốn biểu diễn biến thể thì dùng CapabilityBehavior, không tạo capability con. Ràng buộc này có hệ quả phân tích: nếu mọi biến thể của một capability đều kém, BACM coi đó là dấu hiệu doanh nghiệp có vấn đề mang tính hệ thống ở chính capability ấy.[^6]
 
+<figure class="fig" aria-label="Một capability, chở hàng tới nhà khách, tách thành bốn lớp. Capability và outcome giữ nguyên; biến thể hành vi và phần hiện thực có thể khác nhau.">
+<div class="vmap vmap-two">
+<p class="vmap-l">Capability<small>cái gì</small></p>
+<p class="vmap-c vmap-w">Chở hàng tới nhà khách</p>
+<p class="vmap-l">Outcome<small>kết quả nó tạo ra</small></p>
+<p class="vmap-a vmap-w">Món hàng đã tới tay khách</p>
+<p class="vmap-l">Behavior<small>biến thể của cùng capability</small></p>
+<p class="vmap-a">Giao nhanh trong vùng gần kho</p>
+<p class="vmap-a">Giao thường ngoài vùng</p>
+<p class="vmap-l">Implementation<small>ai làm, bằng gì</small></p>
+<p class="vmap-a">Hôm nay: đội xe của công ty</p>
+<p class="vmap-a">Giả sử mai: thuê ngoài toàn bộ</p>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Một capability đọc theo các lớp của BACM 1.1. Đổi người làm chỉ đổi dòng cuối, nên capability vẫn nằm trên bản đồ. Ví dụ do bài này dựng.</figcaption>
+</figure>
+
 Quy ước đặt tên không thống nhất giữa các nguồn. Homann dùng cụm động từ ("pay employees", "ship product"), ví dụ của BIZBOK dùng cụm danh từ ("Claims Management"), còn value stream của BIZBOK lại dùng động từ ("Settle Claim"). Phần công khai của BIZBOK không nêu quy tắc đặt tên. Phần đó (§2.2 Capability Mapping) chỉ dành cho hội viên.[^2]
 
 ## Value stream và value chain: các từ gần nhau, nghĩa khác nhau
@@ -70,6 +86,41 @@ Người làm kiến trúc, người làm Lean và người làm chiến lược
 
 BIZBOK định nghĩa value stream là *"an end-to-end collection of activities that create a result for a customer"*, trong đó customer có thể là khách cuối hoặc người dùng nội bộ. Định nghĩa này lấy lại từ Whittle và Myrick (2005).[^5] BIZBOK tự xếp Porter value chain, value network và Lean value stream vào nhóm "alternative value mapping approaches".[^2] Nghĩa là trong khung của BIZBOK, chúng là những công cụ khác nhau, không phải từ đồng nghĩa. Dùng Lean value stream mapping cho mục đích của BIZBOK thường kéo bản đồ xuống mức từng hành động, trong khi BIZBOK chỉ cần các giai đoạn có tên. Đây là suy luận của bài từ hai định nghĩa.
 
+Hai hình dưới đặt các khái niệm ấy lên cùng công ty bán lẻ giả định. Value stream và Lean value stream cùng vẽ một đơn hàng, khác nhau ở độ phóng.
+
+<figure class="fig" aria-label="Cùng một đơn hàng ở hai độ phóng. Value stream có bốn giai đoạn có tên. Lean value stream liệt kê mọi hành động trong giai đoạn chuẩn bị, kể cả hai lần chờ không tạo giá trị.">
+<div class="vmap">
+<p class="vmap-l">Value stream<small>giai đoạn có tên</small></p>
+<p class="vmap-s">Đặt mua</p>
+<p class="vmap-s">Xác nhận</p>
+<p class="vmap-s">Chuẩn bị<small>phóng to bên dưới</small></p>
+<p class="vmap-s">Giao</p>
+<p class="vmap-l">Lean<small>mọi hành động</small></p>
+<div class="vmap-steps"><span>Mở phiếu lấy hàng</span><span class="wait">Chờ tới lượt</span><span>Đi tới kệ</span><span>Lấy hàng</span><span class="wait">Chờ bàn đóng gói</span><span>Đóng gói</span></div>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">3</span></span> Hai cách vẽ cùng một đơn hàng. Ô nét đứt là hành động không tạo giá trị, thứ Lean đi tìm; bản đồ của BIZBOK không xuống tới mức này. Các hành động là giả định.</figcaption>
+</figure>
+
+Value chain của Porter (1985) là một loại hình khác: nó chia hoạt động của một công ty thành năm nhóm chính và bốn nhóm hỗ trợ.[^14] Theo cách đọc của bài, khung này không đi theo một đơn hàng mà trải toàn bộ việc công ty làm, để hỏi lợi thế và chi phí nằm ở đâu.
+
+<figure class="fig" aria-label="Value chain của Porter cho công ty bán lẻ giả định: bốn nhóm hoạt động hỗ trợ trải ngang phía trên, năm nhóm hoạt động chính xếp theo cột phía dưới, biên lợi nhuận ở bên phải.">
+<div class="porter">
+<p class="canvas-half porter-h">Hoạt động hỗ trợ</p>
+<div class="canvas-cell porter-sup"><p class="canvas-n">Hạ tầng doanh nghiệp<small>Firm infrastructure</small></p><p class="canvas-d">Ban điều hành, tài chính</p></div>
+<div class="canvas-cell porter-sup"><p class="canvas-n">Nhân sự<small>Human resource management</small></p><p class="canvas-d">Tuyển, đào tạo nhân viên kho, tài xế</p></div>
+<div class="canvas-cell porter-sup"><p class="canvas-n">Phát triển công nghệ<small>Technology development</small></p><p class="canvas-d">Đội công nghệ</p></div>
+<div class="canvas-cell porter-sup"><p class="canvas-n">Mua sắm<small>Procurement</small></p><p class="canvas-d">Mua xe, thuê kho</p></div>
+<p class="canvas-half porter-h">Hoạt động chính</p>
+<div class="canvas-cell porter-pri"><p class="canvas-n">Logistics đầu vào<small>Inbound logistics</small></p><p class="canvas-d">Nhận tủ lạnh từ hãng về kho</p></div>
+<div class="canvas-cell porter-pri"><p class="canvas-n">Vận hành<small>Operations</small></p><p class="canvas-d">Lưu kho, lấy hàng, đóng gói</p></div>
+<div class="canvas-cell porter-pri"><p class="canvas-n">Logistics đầu ra<small>Outbound logistics</small></p><p class="canvas-d">Đội xe chở tới nhà khách</p></div>
+<div class="canvas-cell porter-pri"><p class="canvas-n">Marketing, bán hàng<small>Marketing &amp; sales</small></p><p class="canvas-d">Quảng cáo, trang web</p></div>
+<div class="canvas-cell porter-pri"><p class="canvas-n">Dịch vụ<small>Service</small></p><p class="canvas-d">Đổi trả, bảo hành</p></div>
+<p class="porter-m">Biên lợi nhuận</p>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">4</span></span> Khung chín nhóm hoạt động của Porter, điền bằng công ty bán lẻ trong ví dụ. Nội dung các ô là giả định. Hình này vẽ mọi việc của một công ty, còn Hình 3 vẽ đường đi của một đơn hàng.</figcaption>
+</figure>
+
 ### Value stream không phải process
 
 BACM nối hai mô hình bằng quan hệ *implements*: một Process hay Activity có thể hiện thực cả ValueStream, hoặc hiện thực từng giai đoạn của nó. Với cùng một value stream, BACM không cho làm cả hai mức cùng lúc. Hai mô hình gặp nhau qua Outcome: trạng thái của một business object mà capability tạo ra hoặc cần.[^6] Customer journey cũng không phải process. Theo BACM, journey là góc nhìn hành vi khách hàng do doanh nghiệp dựng ra, và không có nhánh thay thế.[^6]
@@ -82,14 +133,27 @@ BIZBOK định nghĩa mỗi giai đoạn có tên, entrance criteria, exit crite
 
 BACM viết thẳng: *"Capabilities support ValueStreamStages"*.[^9] Bản đồ dưới đây dùng đường đi của một đơn hàng bán lẻ. Đây là ví dụ do bài này dựng, không trích từ nguồn.
 
-<figure class="fig fig-day" aria-label="Bốn giai đoạn của đơn hàng: đặt mua, xác nhận, chuẩn bị, giao. Dưới mỗi giai đoạn là năng lực hỗ trợ nó: nhận đơn, biết còn bao nhiêu hàng, lấy hàng và đóng gói, chở hàng tới nhà khách. Dưới năng lực biết còn bao nhiêu hàng có hai ứng dụng cùng giữ con số tồn kho.">
-<ol class="tower">
-<li>Value stream: đặt mua → xác nhận → chuẩn bị → giao<small>các giai đoạn tích lũy giá trị tới khách</small></li>
-<li>Capability: nhận đơn · biết còn bao nhiêu hàng · lấy hàng, đóng gói · chở hàng tới nhà<small>cái gì, ổn định</small></li>
-<li class="hit">Ứng dụng: hệ thống kho và hệ thống bán hàng cùng giữ con số tồn kho<small>hai ứng dụng chồng nhau trên một capability</small></li>
-<li>Process, tổ chức<small>thế nào, kém ổn định hơn</small></li>
-</ol>
-<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Map chéo cho một đơn hàng. Capability đứng dưới giai đoạn nó hỗ trợ; ứng dụng và process là phần hiện thực. Dòng đỏ là chỗ hai ứng dụng cùng tự động hóa một capability.</figcaption>
+<figure class="fig" aria-label="Bốn giai đoạn của đơn hàng: đặt mua, xác nhận, chuẩn bị, giao. Dưới mỗi giai đoạn là năng lực hỗ trợ nó: nhận đơn, biết còn bao nhiêu hàng, lấy hàng và đóng gói, chở hàng tới nhà. Dưới năng lực biết còn bao nhiêu hàng có hai ứng dụng cùng giữ con số tồn kho.">
+<div class="vmap">
+<p class="vmap-l">Value stream<small>giai đoạn tới khách</small></p>
+<p class="vmap-s">Đặt mua</p>
+<p class="vmap-s">Xác nhận</p>
+<p class="vmap-s">Chuẩn bị</p>
+<p class="vmap-s">Giao</p>
+<p class="vmap-l">Capability<small>hỗ trợ giai đoạn ở trên</small></p>
+<p class="vmap-c">Nhận đơn</p>
+<p class="vmap-c">Biết còn bao nhiêu hàng</p>
+<p class="vmap-c">Lấy hàng, đóng gói</p>
+<p class="vmap-c">Chở hàng tới nhà</p>
+<p class="vmap-l">Ứng dụng<small>tự động hóa capability</small></p>
+<p class="vmap-a">Trang web, hệ thống bán hàng</p>
+<p class="vmap-a hit">Hệ thống kho và hệ thống bán hàng: hai con số tồn kho</p>
+<p class="vmap-a">Hệ thống kho</p>
+<p class="vmap-a">Chưa có phần mềm xếp tuyến</p>
+<p class="vmap-l">Process, tổ chức<small>thế nào</small></p>
+<p class="vmap-a vmap-w">Quy trình lấy hàng, đội kho, đội xe; theo lập luận của nguồn, lớp này kém ổn định hơn capability</p>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">5</span></span> Map chéo cho một đơn hàng: đọc theo cột từ trên xuống. Capability đứng dưới giai đoạn nó hỗ trợ; ứng dụng và process là phần hiện thực. Ô đỏ là chỗ hai ứng dụng cùng tự động hóa một capability. Ví dụ do bài này dựng.</figcaption>
 </figure>
 
 Ba điểm của map chéo đáng giữ khi vẽ:
@@ -111,7 +175,37 @@ Câu ấy rộng hơn cách hiểu thường gặp "dự án lấp capability ga
 | Thay hệ thống kho | Xác nhận, chuẩn bị | Biết còn bao nhiêu hàng | Có |
 | Cho trang web đọc số của hệ thống kho | Xác nhận | Biết còn bao nhiêu hàng | Có |
 
-Cột cuối là phán đoán của người phân tích dựa trên dữ liệu vận hành (ví dụ: đơn hủy lộ ra ở giai đoạn chuẩn bị nhưng lời hứa sai được đưa ra ở giai đoạn xác nhận). Nguồn không đưa thang chấm sẵn. "Capability heat map", kiểu tô màu capability theo mức yếu mạnh, không xuất hiện trong phần công khai của BIZBOK hay trong BACM. Bài này để nó ở mức chưa kiểm chứng.[^11]
+<figure class="fig" aria-label="Bốn dự án đặt lên cùng bản đồ. Đơn hủy lộ ra ở giai đoạn chuẩn bị, nhưng lời hứa sai được đưa ra ở giai đoạn xác nhận. Capability biết còn bao nhiêu hàng đang yếu; chỉ hai dự án chạm vào nó.">
+<div class="vmap">
+<p class="vmap-l">Value stream<small>giai đoạn tới khách</small></p>
+<p class="vmap-s">Đặt mua</p>
+<p class="vmap-s">Xác nhận</p>
+<p class="vmap-s">Chuẩn bị</p>
+<p class="vmap-s">Giao</p>
+<p class="vmap-l">Dữ liệu vận hành<small>chuyện gì xảy ra ở đó</small></p>
+<p class="vmap-a"></p>
+<p class="vmap-a">Lời hứa sai được đưa ra</p>
+<p class="vmap-a">Đơn hủy lộ ra</p>
+<p class="vmap-a"></p>
+<p class="vmap-l">Capability<small>đỏ là đang yếu</small></p>
+<p class="vmap-c">Nhận đơn</p>
+<p class="vmap-c hit">Biết còn bao nhiêu hàng</p>
+<p class="vmap-c">Lấy hàng, đóng gói</p>
+<p class="vmap-c">Chở hàng tới nhà</p>
+<p class="vmap-l">Dự án<small>chạm vào đâu</small></p>
+<p class="vmap-c">Ứng dụng điện thoại</p>
+<p class="vmap-c">Cho trang web đọc số của hệ thống kho</p>
+<span></span>
+<p class="vmap-c">Phần mềm xếp tuyến</p>
+<span class="vmap-lgap"></span>
+<span></span>
+<p class="vmap-c vmap-2">Thay hệ thống kho</p>
+<span></span>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">6</span></span> Bảng trên đặt lên bản đồ. Bốn dự án khác loại giờ so được theo một câu hỏi: có chạm capability đang yếu không. Việc capability nào yếu là phán đoán của người phân tích.</figcaption>
+</figure>
+
+Cột cuối của bảng là phán đoán của người phân tích dựa trên dữ liệu vận hành (ví dụ: đơn hủy lộ ra ở giai đoạn chuẩn bị nhưng lời hứa sai được đưa ra ở giai đoạn xác nhận). Nguồn không đưa thang chấm sẵn. "Capability heat map", kiểu tô màu capability theo mức yếu mạnh, không xuất hiện trong phần công khai của BIZBOK hay trong BACM. Bài này để nó ở mức chưa kiểm chứng.[^11]
 
 ## Khái niệm hay bị nhầm
 
@@ -154,4 +248,5 @@ Video đi kèm (tập 02 của Boring But Correct) kể cùng chuyện bằng m�
 [^10]: Verified · [BIZBOK Guide v15, Part 1](https://cdn.ymaws.com/www.businessarchitectureguild.org/resource/resmgr/bizbok15/BIZBOKv15_introduction.pdf), Figure 1.5 (Strategy Execution Framework) và nguyên tắc về scope của initiative.
 [^11]: OPEN · "Capability heat map" không thấy trong BIZBOK Part 1, Glossary hay BACM 1.1; chưa xác định được nó có phải kỹ thuật chuẩn của BIZBOK hay không.
 [^12]: Verified · [Osterwalder (2004)](https://www.csi.im/pub/BMcanvas/2004-Osterwalder_PhD_BM_Ontology.pdf), Table 16; so với [BACM 1.1](https://www.omg.org/spec/BACM/1.1/PDF) §7.3.2.7. Mức tin cậy trung bình: so sánh là của người học, dựa trên hai định nghĩa gốc.
+[^14]: Đọc từ nguồn thứ cấp, chưa kiểm riêng · [Wikipedia: Value chain](https://en.wikipedia.org/wiki/Value_chain): cách chia năm hoạt động chính và bốn hoạt động hỗ trợ trong *Competitive Advantage* (Porter, 1985); chưa đối chiếu sách gốc.
 [^13]: Có tranh luận · [BIZBOK Guide v15, Part 1](https://cdn.ymaws.com/www.businessarchitectureguild.org/resource/resmgr/bizbok15/BIZBOKv15_introduction.pdf), Figure 1.1, 1.3 và mục lục §3.3; vị trí của business model trong TOGAF lấy từ mô tả nhà xuất bản của bộ Business Architecture.

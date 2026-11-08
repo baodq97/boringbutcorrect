@@ -79,14 +79,22 @@ Hầu hết tên đã đổi, có chỗ chỉ thêm số nhiều; theo cách đ�
 
 Strategyzer mô tả cách đọc canvas theo hai nửa. Nửa phải là thị trường (khách, kênh, quan hệ), nửa trái là những gì cần để phục vụ thị trường đó (việc chính, nguồn lực, đối tác), và giá trị đưa cho khách nằm giữa. Hai ô tiền ở dưới cùng chỉ có nghĩa khi được đọc cùng bảy ô phía trên.[^10] Đọc theo cách đó, đổi ô khách hiếm khi là thay đổi cục bộ: cần kiểm từng ô kênh, việc chính và cấu trúc chi phí xem có phải đổi theo không.
 
-<figure class="fig fig-kernel" aria-label="Canvas đọc theo hai nửa: bên trái là thứ cần để phục vụ thị trường, giữa là giá trị, bên phải là thị trường; hai ô tiền nằm dưới.">
-<ol class="kernel">
-<li><p class="kernel-h">Nửa trái</p><p class="kernel-def">Thứ cần để phục vụ thị trường</p><p class="kernel-ex">Việc chính, nguồn lực, đối tác</p></li>
-<li><p class="kernel-h">Ở giữa</p><p class="kernel-def">Điều đưa cho khách</p><p class="kernel-ex">Giá trị</p></li>
-<li><p class="kernel-h">Nửa phải</p><p class="kernel-def">Thị trường</p><p class="kernel-ex">Khách, kênh, quan hệ</p></li>
-</ol>
-<p class="kernel-cost"><strong>Hai ô tiền</strong> Chi phí và doanh thu nằm dưới cùng, và chỉ có nghĩa khi đọc cùng bảy ô phía trên.</p>
-<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Cách Strategyzer mô tả việc đọc canvas theo hai nửa.</figcaption>
+<figure class="fig" aria-label="Business Model Canvas chín ô cho công ty bán lẻ giả định.">
+<div class="canvas">
+<p class="canvas-half" style="grid-area:hl">Thứ cần để phục vụ thị trường</p>
+<p class="canvas-half" style="grid-area:hm">Giá trị</p>
+<p class="canvas-half" style="grid-area:hr">Thị trường</p>
+<div class="canvas-cell" style="grid-area:kp"><p class="canvas-n">Đối tác chính<small>Key Partnerships</small></p><p class="canvas-d">Hãng tủ lạnh</p></div>
+<div class="canvas-cell" style="grid-area:ka"><p class="canvas-n">Việc chính<small>Key Activities</small></p><p class="canvas-d">Giao hàng, quảng cáo</p></div>
+<div class="canvas-cell" style="grid-area:kr"><p class="canvas-n">Nguồn lực chính<small>Key Resources</small></p><p class="canvas-d">Kho, đội xe</p></div>
+<div class="canvas-cell" style="grid-area:vp"><p class="canvas-n">Giá trị đưa cho khách<small>Value Propositions</small></p><p class="canvas-d">Tủ lạnh, giao nhanh cho khách gần kho</p></div>
+<div class="canvas-cell" style="grid-area:cr"><p class="canvas-n">Quan hệ khách<small>Customer Relationships</small></p><p class="canvas-d">Tự đặt, trả ngay</p></div>
+<div class="canvas-cell" style="grid-area:ch"><p class="canvas-n">Kênh<small>Channels</small></p><p class="canvas-d">Trang web</p></div>
+<div class="canvas-cell" style="grid-area:cs"><p class="canvas-n">Phân khúc khách<small>Customer Segments</small></p><p class="canvas-d">Khách lẻ</p></div>
+<div class="canvas-cell" style="grid-area:co"><p class="canvas-n">Cấu trúc chi phí<small>Cost Structure</small></p><p class="canvas-d">Kho, đội xe, quảng cáo</p></div>
+<div class="canvas-cell" style="grid-area:re"><p class="canvas-n">Dòng doanh thu<small>Revenue Streams</small></p><p class="canvas-d">100 tỷ mỗi năm, thu ngay</p></div>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">2</span></span> Chín ô cho công ty bán lẻ trong ví dụ. Bố cục phỏng theo Business Model Canvas của Strategyzer (CC BY-SA 3.0); nội dung các ô là giả định. Hai ô tiền nằm dưới cùng và chỉ có nghĩa khi đọc cùng bảy ô phía trên.</figcaption>
 </figure>
 
 ## Một canvas cho một business model
@@ -101,6 +109,24 @@ Strategyzer viết: *"Fill it once for one business model, not for the whole com
 | Việc chính | giao từng nhà | xe tải theo chuyến |
 | Doanh thu | thu ngay | thu sau ba mươi ngày |
 | Chi phí | kho, đội xe, quảng cáo | thêm vốn lưu động: ứng tiền hàng trước khi thu |
+
+<figure class="fig" aria-label="Business Model Canvas chín ô cho việc bán sỉ giả định, ô phân khúc khách được tô đỏ.">
+<div class="canvas">
+<p class="canvas-half" style="grid-area:hl">Thứ cần để phục vụ thị trường</p>
+<p class="canvas-half" style="grid-area:hm">Giá trị</p>
+<p class="canvas-half" style="grid-area:hr">Thị trường</p>
+<div class="canvas-cell" style="grid-area:kp"><p class="canvas-n">Đối tác chính<small>Key Partnerships</small></p><p class="canvas-d">Hãng tủ lạnh</p></div>
+<div class="canvas-cell" style="grid-area:ka"><p class="canvas-n">Việc chính<small>Key Activities</small></p><p class="canvas-d">Xe tải 20 chiếc một chuyến</p></div>
+<div class="canvas-cell" style="grid-area:kr"><p class="canvas-n">Nguồn lực chính<small>Key Resources</small></p><p class="canvas-d">Kho, xe tải</p></div>
+<div class="canvas-cell" style="grid-area:vp"><p class="canvas-n">Giá trị đưa cho khách<small>Value Propositions</small></p><p class="canvas-d">Tủ lạnh giá sỉ, trả sau 30 ngày</p></div>
+<div class="canvas-cell" style="grid-area:cr"><p class="canvas-n">Quan hệ khách<small>Customer Relationships</small></p><p class="canvas-d">Báo giá theo số lượng</p></div>
+<div class="canvas-cell" style="grid-area:ch"><p class="canvas-n">Kênh<small>Channels</small></p><p class="canvas-d">Nhân viên gọi điện</p></div>
+<div class="canvas-cell hit" style="grid-area:cs"><p class="canvas-n">Phân khúc khách<small>Customer Segments</small></p><p class="canvas-d">Cửa hàng điện máy</p></div>
+<div class="canvas-cell" style="grid-area:co"><p class="canvas-n">Cấu trúc chi phí<small>Cost Structure</small></p><p class="canvas-d">Tiền hàng bỏ ra trước</p></div>
+<div class="canvas-cell" style="grid-area:re"><p class="canvas-n">Dòng doanh thu<small>Revenue Streams</small></p><p class="canvas-d">Thu sau 30 ngày</p></div>
+</div>
+<figcaption><span class="fig-no">Hình <span class="no">3</span></span> Cùng công ty, canvas thứ hai cho việc bán sỉ. Ô đỏ là ô đổi đầu tiên; các ô còn lại được kiểm lại theo nó. Nội dung là giả định.</figcaption>
+</figure>
 
 Theo suy luận của bài, vẽ chung hai cột này vào một canvas sẽ cho ra một tờ mà ô nào cũng có hai nội dung, và hai ô tiền không còn đọc được. Từ ví dụ Compaq, bài này suy ra rằng hai business model trong cùng một công ty thường va nhau ở hình thái vật chất: kênh, đơn vị, cách chấm điểm, quan hệ với bên bán lại. Vẽ tách hai canvas giúp thấy chỗ cần sắp xếp lại tổ chức. Strategyzer còn khuyên coi canvas là một giả thuyết chứ không phải kế hoạch: ghi ngày và phiên bản, vẽ lại khi có bằng chứng mới.[^10] Đây là lời khuyên của một bên thương mại (Strategyzer bán công cụ và khóa học), dù đến từ chính tác giả khung.[^12]
 

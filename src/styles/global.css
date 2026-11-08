@@ -357,7 +357,18 @@ a:hover { color: var(--accent); text-decoration-color: var(--accent); }
 .quad-cell.hit .quad-n { color: var(--accent); }
 .quad-d { font-weight: 400; color: var(--ink); }
 
+.canvas { display: grid; grid-template-columns: repeat(10, 1fr); grid-template-areas: "hl hl hl hl hm hm hr hr hr hr" "kp kp ka ka vp vp cr cr cs cs" "kp kp kr kr vp vp ch ch cs cs" "co co co co co re re re re re"; }
+.canvas-half { padding-bottom: 0.4rem; text-align: center; font-size: var(--s-12); font-weight: 600; letter-spacing: 0.06em; line-height: 1.35; text-transform: uppercase; color: var(--muted); }
+.canvas-cell { min-height: 7.5rem; padding: 0.6rem; border: 1px solid var(--ink); margin: 0 -1px -1px 0; }
+.canvas-cell.hit { border: 2px solid var(--accent); position: relative; z-index: 1; }
+.canvas-cell.hit .canvas-n, .canvas-cell.hit small { color: var(--accent); }
+.canvas-n { font-size: var(--s-14); font-weight: 800; line-height: 1.3; }
+.canvas small { font-size: var(--s-12); }
+.canvas-d { margin-top: 0.5rem !important; font-size: var(--s-14); line-height: 1.4; }
+
 @media (max-width: 720px) {
+  .canvas { grid-template-columns: 1fr 1fr; grid-template-areas: "hm hm" "vp vp" "hl hr" "ka cr" "kr ch" "kp cs" "co re"; }
+  .canvas-cell { min-height: 0; }
   .fig-axes { grid-template-columns: 1fr; row-gap: 1rem; }
   .axes-gap { padding: 0 0 0 1.25rem; text-align: left; justify-self: start; }
   .axes-gap::before { top: 0; bottom: 8px; left: 5px; right: auto; border-top: 0; border-left: 2px solid var(--ink); }

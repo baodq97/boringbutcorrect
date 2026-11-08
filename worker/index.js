@@ -17,4 +17,4 @@ export default {
   },
 };
 
-const CONTENT_SIGNAL = 'ai-train=no, search=yes, ai-input=yes';
+const CONTENT_SIGNAL = 'ai-train=yes, search=yes, ai-input=yes';

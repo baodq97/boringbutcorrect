@@ -28,6 +28,7 @@ const minutes = readingMinutes(post.body);
 const toc = headings.filter((h) => h.depth === 2 && h.slug !== 'footnote-label');
 const url = new URL(`/${post.id}`, Astro.site).href;
 const image = d.image ?? (d.video && `https://i.ytimg.com/vi/${d.video.id}/maxresdefault.jpg`);
+const modified = d.verified > d.published ? d.verified : d.published;
 const channel = organization(Astro.site);
 const jsonLd: object[] = [
   {
@@ -37,7 +38,7 @@ const jsonLd: object[] = [
     description: d.description,
     inLanguage: 'vi',
     datePublished: isoDate(d.published),
-    dateModified: isoDate(d.verified),
+    dateModified: isoDate(modified),
     ...(image && { image: new URL(image, Astro.site).href }),
     mainEntityOfPage: url,
     author: channel,
@@ -64,7 +65,7 @@ const legs = [
   { label: 'Chuyến kế', trip: leg(next), none: 'Chưa khởi hành' },
 ];
 ---
-<Base title={`${d.title} | Boring But Correct`} description={d.description} type="article" image={image} article={{ published: isoDate(d.published), modified: isoDate(d.verified), section: station.name }} markdownHref={`/${post.id}.md`} jsonLd={jsonLd}>
+<Base title={`${d.title} | Boring But Correct`} description={d.description} type="article" image={image} article={{ published: isoDate(d.published), modified: isoDate(modified), section: station.name }} markdownHref={`/${post.id}.md`} jsonLd={jsonLd}>
   <Route current={d.station} compact />
   <article class="article">
     <h1>{d.title}</h1>

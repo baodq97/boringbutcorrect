@@ -23,4 +23,4 @@ Consult these guides before working on related tasks:
 
 ## Git
 
-- Commit messages are in English.
+- Commit messages, PR titles and PR bodies are in English.

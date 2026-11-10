@@ -53,7 +53,7 @@ if (d.video) {
     name: d.title,
     description: d.description,
     thumbnailUrl: new URL(image!, Astro.site).href,
-    uploadDate: isoDate(d.published),
+    uploadDate: d.published.toISOString(),
     duration: `PT${min}M${sec}S`,
     contentUrl: `https://www.youtube.com/watch?v=${d.video.id}`,
     embedUrl: `https://www.youtube.com/embed/${d.video.id}`,

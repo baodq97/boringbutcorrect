@@ -6,7 +6,7 @@ import { stations, pad, formatDate, isoDate } from '../lib/stations';
 import { organization } from '../lib/site';
 
 const posts = await getPosts();
-const numbered = posts.map((p, i) => ({ p, no: pad(i + 1) }));
+const numbered = posts.map((p, i) => ({ p, no: pad(i) }));
 const departed = [...new Set(posts.map((p) => p.data.station))];
 const lines = stations.filter((s) => departed.includes(s.n));
 const current = posts.at(-1)?.data.station ?? 1;

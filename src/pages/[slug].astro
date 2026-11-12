@@ -13,8 +13,8 @@ export async function getStaticPaths() {
     params: { slug: post.id },
     props: {
       post,
-      prev: posts[i - 1] && { post: posts[i - 1], no: pad(i) },
-      next: posts[i + 1] && { post: posts[i + 1], no: pad(i + 2) },
+      prev: posts[i - 1] && { post: posts[i - 1], no: pad(i - 1) },
+      next: posts[i + 1] && { post: posts[i + 1], no: pad(i + 1) },
       related: posts.filter((p) => p.data.station === post.data.station && p.id !== post.id).toReversed().slice(0, 3),
     },
   }));

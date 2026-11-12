@@ -1,5 +1,6 @@
 ---
 title: "Chiến lược kinh doanh là gì, và vì sao mục tiêu doanh thu chưa phải chiến lược?"
+seoTitle: "Chiến lược kinh doanh là gì: Porter, Rumelt, Mintzberg"
 description: "Porter, Rumelt, Mintzberg định nghĩa chiến lược ở đâu giống, ở đâu lệch; và cách kiểm một bản kế hoạch: chọn gì, bỏ gì, việc thật có đi theo không."
 station: 1
 published: 2026-11-08

@@ -99,7 +99,8 @@ a:hover { color: var(--accent); text-decoration-color: var(--accent); }
   letter-spacing: -0.01em;
   text-decoration: none;
 }
-.tagline { font-size: var(--s-14); color: var(--muted); margin: 0; }
+.tagline { font-size: var(--s-14); color: var(--muted); margin: 0 0 0 auto; }
+.lang-switch { font-size: var(--s-14); font-weight: 600; }
 
 .route { margin: 2.5rem 0 3rem; }
 .route ol {
@@ -164,6 +165,7 @@ a:hover { color: var(--accent); text-decoration-color: var(--accent); }
   :root { --gap: 20px; }
   body { font-size: var(--s-18); }
   .masthead { flex-direction: column; gap: 0.25rem; }
+  .tagline { margin-left: 0; }
   .route:not(.compact) ol { grid-template-columns: 1fr; gap: 1.25rem; }
   .route:not(.compact) ol::before { content: none; }
   .route:not(.compact) li:not(:last-child)::after { content: ''; position: absolute; left: 9px; top: 10px; bottom: -1.25rem; border-left: var(--rule); }

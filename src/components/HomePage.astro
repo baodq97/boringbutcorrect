@@ -1,0 +1,191 @@
+---
+import Base from '../layouts/Base.astro';
+import Route from './Route.astro';
+import { getNumbered, postUrl, readingMinutes } from '../lib/posts';
+import { stations, pad, isoDate } from '../lib/stations';
+import { organization } from '../lib/site';
+import { ui, home, type Lang } from '../lib/i18n';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = ui[lang];
+const numbered = await getNumbered(lang);
+const posts = numbered.map((n) => n.post);
+const departed = [...new Set(posts.map((p) => p.data.station))];
+const lines = stations.filter((s) => departed.includes(s.n));
+const current = posts.at(-1)?.data.station ?? 1;
+const faqs = {
+  vi: [
+    {
+      q: 'Boring But Correct là gì?',
+      a: 'Blog và kênh YouTube tiếng Việt giải thích công nghệ trong bối cảnh kinh doanh. Mỗi bài trả lời một câu hỏi về một quyết định công nghệ, luôn có cả vế kinh doanh lẫn vế công nghệ, và mọi phát biểu trong bài đều có nguồn kiểm được.',
+    },
+    {
+      q: 'Blog viết cho ai?',
+      a: 'Cho người làm ở chỗ kinh doanh gặp công nghệ: quản lý và điều hành cần thấy tác động kinh doanh của một khoản đầu tư công nghệ; BA, PM và product đứng giữa nghiệp vụ và đội kỹ thuật; kiến trúc sư và dev senior muốn hiểu phía kinh doanh.',
+    },
+    {
+      q: 'Làm sao biết thông tin trong bài là đúng?',
+      a: 'Mỗi phát biểu có một số nhỏ kèm ký hiệu trạng thái ngay cạnh câu: đã kiểm chứng, có tranh luận hoặc OPEN, dẫn tới nguồn gốc. Mỗi bài ghi ngày kiểm chứng lần cuối và có bảng nguồn đầy đủ ở cuối bài.',
+      link: { href: '/cach-kiem-chung', text: 'Cách blog kiểm chứng' },
+    },
+    {
+      q: 'Các bài được sắp xếp thế nào?',
+      a: 'Theo một tuyến sáu trạm, mỗi trạm là một chủ đề: Business, Domain, Architecture, Data, Reporting, Automation. Bài nào cũng thuộc một trạm, và các bài trong cùng trạm dẫn sang nhau.',
+    },
+    {
+      q: 'Bài có video không?',
+      a: 'Một số bài có video đi kèm trên kênh YouTube Boring But Correct. Bài là bài đọc độc lập, sâu hơn video; nhiều bài không có video.',
+    },
+    {
+      q: 'Agent AI đọc blog bằng cách nào?',
+      a: 'Mỗi bài có bản markdown cùng nội dung ở cùng đường dẫn thêm đuôi .md, gồm cả hình giải thích dạng chữ và danh sách nguồn. Danh sách mọi bài nằm ở /llms.txt.',
+    },
+  ],
+  en: [
+    {
+      q: 'What is Boring But Correct?',
+      a: 'A blog and a Vietnamese-language YouTube channel that explain technology in a business context. Each post answers one question about a technology decision, always covers both the business side and the technology side, and every claim in it has a source you can check.',
+    },
+    {
+      q: 'Who is it for?',
+      a: 'People who work where business meets technology: managers and executives who need to see the business impact of a technology investment; BAs, PMs and product people between the business and the engineering team; architects and senior developers who want to understand the business side.',
+    },
+    {
+      q: 'How do I know a post is right?',
+      a: 'Every claim has a small number and a status mark right next to the sentence: verified, disputed or OPEN, linking to the original source. Each post shows when it was last verified and ends with a full source table.',
+      link: { href: '/en/how-we-verify', text: 'How we verify' },
+    },
+    {
+      q: 'How are the posts organised?',
+      a: 'Along a line of six stations, one topic each: Business, Domain, Architecture, Data, Reporting, Automation. Every post belongs to one station, and posts at the same station link to each other.',
+    },
+    {
+      q: 'Is this a translation?',
+      a: 'Yes. Posts are written and verified in Vietnamese first; the English version is a translation with the same claims, the same sources and the same verification status. Companion videos are in Vietnamese.',
+    },
+    {
+      q: 'How can an AI agent read the blog?',
+      a: 'Every post has a markdown version at the same path with .md added, including text descriptions of the figures and the source list. All posts are listed at /llms.txt.',
+    },
+  ],
+};
+const faq = faqs[lang];
+---
+<Base
+  title={t.homeTitle}
+  description={t.homeDescription}
+  lang={lang}
+  translation={home(lang === 'vi' ? 'en' : 'vi')}
+  jsonLd={[
+    { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Boring But Correct', url: new URL(home(lang), Astro.site), inLanguage: t.htmlLang },
+    { '@context': 'https://schema.org', ...organization(Astro.site) },
+    {
+      '@context': 'https://schema.org',
+      '@type': 'FAQPage',
+      mainEntity: faq.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })),
+    },
+  ]}
+>
+  <h1 class="sr-only">{t.homeH1}</h1>
+  <Route current={current} departed={departed} lang={lang} />
+
+  {lines.length === 0 && <p class="empty">{t.empty}</p>}
+
+  {lines.map((s) => (
+    <section class="line" id={`tram-${pad(s.n)}`} aria-labelledby={`tram-${pad(s.n)}-h`}>
+      <h2 id={`tram-${pad(s.n)}-h`}><span class:list={['no', { here: s.n === current }]}>{pad(s.n)}</span> {s.name}</h2>
+      <table class="timetable">
+        <thead>
+          <tr>
+            <th scope="col">{t.col.no}</th>
+            <th scope="col">{t.col.post}</th>
+            <th scope="col">{t.col.published}</th>
+            <th scope="col">{t.col.verified}</th>
+            <th scope="col">{t.col.read}</th>
+            <th scope="col">{t.col.video}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {numbered.filter(({ post: p }) => p.data.station === s.n).toReversed().map(({ post: p, no }) => (
+            <tr>
+              <td class="num ep">{no}</td>
+              <td class="trip">
+                <a href={postUrl(p)}>{p.data.title}</a>
+                <p class="dek">{p.data.description}</p>
+              </td>
+              <td data-label={t.col.published}><time datetime={isoDate(p.data.published)}>{t.date(p.data.published)}</time></td>
+              <td data-label={t.col.verified}><time datetime={isoDate(p.data.verified)}>{t.date(p.data.verified)}</time></td>
+              <td data-label={t.col.read}><span class="num">{readingMinutes(p.body)}</span> {t.minutes}</td>
+              <td data-label={t.col.video} class:list={['num', { none: !p.data.video }]}>{p.data.video?.duration ?? '—'}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </section>
+  ))}
+
+  <section class="about" aria-labelledby="ve-blog">
+    <h2 id="ve-blog">{t.about}</h2>
+    {faq.map((f) => (
+      <div class="qa">
+        <h3>{f.q}</h3>
+        <p>{f.a}{f.link && <> <a href={f.link.href}>{f.link.text}</a>.</>}</p>
+      </div>
+    ))}
+  </section>
+</Base>
+
+<style>
+  .empty { color: var(--muted); }
+  .line { margin-bottom: 4rem; }
+  h2 {
+    font-size: var(--s-28);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 0;
+    padding-top: 0.75rem;
+    border-top: var(--rule);
+  }
+  h2 .no { font-weight: 600; }
+  h2 .here { color: var(--accent); }
+  .timetable { width: 100%; border-collapse: collapse; margin-top: 1.25rem; font-variant-numeric: tabular-nums; }
+  th {
+    text-align: left;
+    font-size: var(--s-12);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 1rem 0.5rem;
+    border-bottom: 1px solid var(--ink);
+  }
+  td { padding: 1.1rem 1rem; border-bottom: 1px solid var(--hair); vertical-align: baseline; font-size: var(--s-16); white-space: nowrap; }
+  th + th, td + td { border-left: 1px solid var(--hair); }
+  th:first-child, td:first-child { padding-left: 0; }
+  td.ep { font-size: var(--s-28); font-weight: 600; width: 4.5rem; line-height: 1; }
+  td.trip { white-space: normal; width: 100%; }
+  .trip a { font-weight: 700; font-size: var(--s-22); line-height: 1.35; text-decoration: none; }
+  .trip a:hover { text-decoration: underline; }
+  .dek { margin: 0.35rem 0 0; font-size: var(--s-16); line-height: 1.55; color: var(--muted); max-width: 46rem; }
+  tbody tr:hover td { background: var(--accent-wash); }
+  .about { margin-top: 2rem; }
+  .about .qa { max-width: 42rem; padding: 1.25rem 0; border-bottom: 1px solid var(--hair); }
+  .about h3 { font-size: var(--s-18); font-weight: 700; line-height: 1.35; margin: 0 0 0.35rem; }
+  .about p { margin: 0; font-size: var(--s-16); line-height: 1.6; }
+
+  @media (max-width: 720px) {
+    thead { display: none; }
+    .timetable, tbody, tr { display: block; }
+    tr { display: grid; grid-template-columns: 3.5rem 1fr; column-gap: 0.75rem; padding: 1rem 0; border-bottom: 1px solid var(--hair); }
+    td, td + td { border: 0; padding: 0; }
+    td.ep { grid-row: span 5; }
+    td:not(.ep):not(.trip) { font-size: var(--s-14); color: var(--muted); }
+    td.trip { margin-bottom: 0.5rem; }
+    td[data-label]::before { content: attr(data-label) ' '; font-family: var(--sans); }
+    .trip a { font-size: var(--s-18); }
+    td.none { display: none; }
+  }
+</style>

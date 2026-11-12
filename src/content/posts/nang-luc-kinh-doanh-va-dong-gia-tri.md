@@ -1,5 +1,6 @@
 ---
 title: "Business capability và value stream: định nghĩa gốc, chỗ lệch, và cách dùng"
+seoTitle: "Business capability và value stream: định nghĩa, cách dùng"
 description: "Năng lực kinh doanh và dòng giá trị theo BIZBOK, OMG BACM 1.1 và Homann 2006: định nghĩa gốc, chỗ các nguồn lệch nhau, và cách dùng khi scope dự án."
 station: 1
 published: 2026-11-08

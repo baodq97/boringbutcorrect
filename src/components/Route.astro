@@ -1,24 +1,27 @@
 ---
 import { stations, pad } from '../lib/stations';
+import { ui, root, type Lang } from '../lib/i18n';
 
 interface Props {
   current: number;
   compact?: boolean;
   departed?: number[];
+  lang?: Lang;
 }
-const { current, compact = false, departed = [] } = Astro.props;
+const { current, compact = false, departed = [], lang = 'vi' } = Astro.props;
+const t = ui[lang];
 const here = stations.find((s) => s.n === current)!;
 ---
 {compact ? (
-  <nav class="route compact" aria-label="Tuyến chủ đề">
-    <a href={`/#tram-${pad(here.n)}`} aria-label={`Trạm ${pad(here.n)} ${here.name}: xem các bài cùng trạm`}>
+  <nav class="route compact" aria-label={t.route}>
+    <a href={`${root(lang)}/#tram-${pad(here.n)}`} aria-label={t.stationLink(pad(here.n), here.name)}>
       <ol aria-hidden="true">
         {stations.map((s) => <li class:list={{ here: s.n === current }}><span class="dot"></span></li>)}
       </ol>
     </a>
   </nav>
 ) : (
-  <nav class="route" aria-label="Tuyến chủ đề">
+  <nav class="route" aria-label={t.route}>
     <ol>
       {stations.map((s) => {
         const open = departed.includes(s.n);
@@ -28,7 +31,7 @@ const here = stations.find((s) => s.n === current)!;
             <span class="label">
               <span class="no">{pad(s.n)}</span>
               {open ? <a class="name" href={`#tram-${pad(s.n)}`}>{s.name}</a> : <span class="name">{s.name}</span>}
-              {!open && <span class="note">chưa khởi hành</span>}
+              {!open && <span class="note">{t.notDeparted}</span>}
             </span>
           </li>
         );

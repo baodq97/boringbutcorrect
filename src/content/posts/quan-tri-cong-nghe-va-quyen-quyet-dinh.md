@@ -1,5 +1,6 @@
 ---
 title: "IT governance khác IT management ở đâu, và ai nên quyết việc gì?"
+seoTitle: "IT governance khác IT management ở đâu? Ai quyết gì?"
 description: "Đọc lại ISO/IEC 38500:2024, ranh giới governance–management của ISACA và nghiên cứu decision rights của MIT CISR: định nghĩa gốc, chỗ lệch, giới hạn, cách dùng."
 station: 1
 published: 2026-11-08

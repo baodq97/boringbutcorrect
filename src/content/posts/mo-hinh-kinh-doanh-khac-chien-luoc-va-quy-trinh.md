@@ -1,5 +1,6 @@
 ---
 title: "Business model là gì, và khác chiến lược, quy trình ở đâu?"
+seoTitle: "Business model khác chiến lược và quy trình ở đâu?"
 description: "Đọc lại luận án Osterwalder 2004 và Business Model Canvas: định nghĩa gốc, ba lớp, chín ô, ba kiểu cấu hình giá trị, và chỗ khung này còn hở."
 station: 1
 published: 2026-11-08

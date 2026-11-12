@@ -1,12 +1,7 @@
 ---
 import '../styles/global.css';
 import { social, rssIcon, verifyIcon } from '../lib/site';
-
-const follow = [
-  { name: 'Cách blog kiểm chứng', url: '/cach-kiem-chung', icon: verifyIcon },
-  ...social,
-  { name: 'RSS', url: '/rss.xml', icon: rssIcon },
-];
+import { ui, home, type Lang } from '../lib/i18n';
 
 interface Props {
   title: string;
@@ -16,13 +11,26 @@ interface Props {
   article?: { published: string; modified: string; section: string };
   markdownHref?: string;
   jsonLd?: object[];
+  lang?: Lang;
+  translation?: string;
 }
-const { title, description, type = 'website', image, article, markdownHref, jsonLd = [] } = Astro.props;
-const canonical = new URL(Astro.url.pathname.replace(/(index)?\.html$/, ''), Astro.site);
+const { title, description, type = 'website', image, article, markdownHref, jsonLd = [], lang = 'vi', translation } = Astro.props;
+const t = ui[lang];
+const other: Lang = lang === 'vi' ? 'en' : 'vi';
+const follow = [
+  { name: t.verifyPage.name, url: t.verifyPage.url, icon: verifyIcon },
+  ...social,
+  { name: 'RSS', url: t.rss, icon: rssIcon },
+];
+const versions = translation ? { [lang]: canonicalOf(Astro.url.pathname), [other]: new URL(translation, Astro.site) } : undefined;
+function canonicalOf(path: string) {
+  return new URL(path.replace(/(index)?\.html$/, ''), Astro.site);
+}
+const canonical = canonicalOf(Astro.url.pathname);
 const ogImage = new URL(image ?? '/og/site.png', Astro.site);
 ---
 <!doctype html>
-<html lang="vi">
+<html lang={t.htmlLang}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -33,14 +41,17 @@ const ogImage = new URL(image ?? '/og/site.png', Astro.site);
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap-index.xml" />
-    <link rel="alternate" type="application/rss+xml" title="Boring But Correct" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title="Boring But Correct" href={t.rss} />
+    {versions && Object.entries(versions).map(([l, href]) => <link rel="alternate" hreflang={l} href={href} />)}
+    {versions && <link rel="alternate" hreflang="x-default" href={versions.vi} />}
     <link rel="describedby" type="text/plain" href="/llms.txt" />
     <link rel="preload" href="/fonts/overpass.woff2" as="font" type="font/woff2" crossorigin />
     {markdownHref && <link rel="alternate" type="text/markdown" href={markdownHref} />}
     <meta name="theme-color" content="#ffffff" />
     <meta property="og:type" content={type} />
     <meta property="og:site_name" content="Boring But Correct" />
-    <meta property="og:locale" content="vi_VN" />
+    <meta property="og:locale" content={t.ogLocale} />
+    {versions && <meta property="og:locale:alternate" content={ui[other].ogLocale} />}
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
@@ -52,15 +63,16 @@ const ogImage = new URL(image ?? '/og/site.png', Astro.site);
     {jsonLd.map((d) => <script type="application/ld+json" set:html={JSON.stringify(d)} />)}
   </head>
   <body>
-    <a class="skip" href="#noi-dung">Bỏ qua tới nội dung</a>
+    <a class="skip" href="#noi-dung">{t.skip}</a>
     <div class="wrap">
       <header class="masthead">
-        <a class="wordmark" href="/">Boring But Correct</a>
-        <p class="tagline">Business technology, explained plainly.</p>
+        <a class="wordmark" href={home(lang)}>Boring But Correct</a>
+        <p class="tagline">{t.tagline}</p>
+        <a class="lang-switch" href={translation ?? home(other)} hreflang={other} lang={other}>{t.otherLang}</a>
       </header>
       <main id="noi-dung"><slot /></main>
       <footer class="footer">
-        <a class="footer-name" href="/">Boring But Correct</a>
+        <a class="footer-name" href={home(lang)}>Boring But Correct</a>
         <ul class="follow">
           {follow.map((s) => (
             <li>

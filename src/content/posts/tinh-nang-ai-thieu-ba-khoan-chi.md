@@ -1,5 +1,6 @@
 ---
 title: "Business case cho tính năng AI thường thiếu ba khoản chi nào?"
+seoTitle: "Business case tính năng AI thường thiếu ba khoản chi nào?"
 description: "Một tính năng AI chạy theo ba đồng hồ mà business case phần mềm thường không tính: chi phí mỗi việc, ngày khai tử model, và độ mất giá của prompt và harness."
 station: 1
 published: 2026-11-12

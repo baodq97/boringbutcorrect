@@ -9,7 +9,4 @@ export const stations = [
 
 export const pad = (n: number) => String(n).padStart(2, '0');
 
-export const formatDate = (d: Date) =>
-  `${pad(d.getUTCDate())}/${pad(d.getUTCMonth() + 1)}/${d.getUTCFullYear()}`;
-
 export const isoDate = (d: Date) => d.toISOString().slice(0, 10);

@@ -1,0 +1,56 @@
+---
+import Base from '../../layouts/Base.astro';
+
+const statuses = [
+  { key: 'verified', label: 'Verified', text: 'Checked against the original source, and the source says what the sentence says.' },
+  { key: 'disputed', label: 'Disputed', text: 'Credible sources disagree. The note says which side says what.' },
+  { key: 'open', label: 'OPEN', text: 'No original source confirming it has been found yet. The sentence stays because the argument needs it, and it is marked as unverified.' },
+];
+const sample = '/en/new-warehouse-system-orders-still-cancelled';
+---
+<Base title="How we verify | Boring But Correct" description="Every claim in a post has a source mark right next to the sentence. This page explains the marks, the three statuses and the verification date." lang="en" translation="/cach-kiem-chung">
+  <article class="article">
+    <h1>How we verify</h1>
+    <p class="dek">Every claim and number in a post has a source you can check. This page explains how to read the marks.</p>
+    <div class="prose">
+      <h2>The mark next to a sentence</h2>
+      <p>After each claim there is a small red number with a status mark. The source note sits in the right margin level with that line; on narrow screens, right below the paragraph. Each post ends with a full source table, and every row links back to its paragraph.</p>
+      <p class="example"><span class="label">Example from <a href={`${sample}#nguon-2`}>a post</a></span>ISACA separates governance (evaluate, direct, monitor) from management (plan, build, run, <span class="nw">monitor).<sup class="ref" data-status="verified"><a href="#vi-du-2" aria-label="Source 2, Verified"><span class="mark" aria-hidden="true"></span>2</a></sup></span><span class="sn" id="vi-du-2" data-status="verified"><span class="sn-head"><span class="sn-n">2</span><span class="mark" aria-hidden="true"></span><span class="sn-status">Verified</span></span><span class="sn-body"><a href="https://support.isaca.org/s/article/Governance-and-management-activities-are-the-responsibility-of-the-BoD-1597877237345">ISACA Support (2025-07-02)</a>: governance is evaluate, direct, monitor, usually the board's; management is plan, build, run, monitor, the executive team's.</span></span></p>
+
+      <h2>Three statuses</h2>
+      <table class="states">
+        <thead><tr><th scope="col">Status</th><th scope="col">Meaning</th></tr></thead>
+        <tbody>
+          {statuses.map((s) => (
+            <tr data-status={s.key}>
+              <td class="state"><span class="mark" aria-hidden="true"></span>{s.label}</td>
+              <td>{s.text}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p>The three marks differ in shape, a filled circle, a half circle and a ring, so they can be told apart without colour.</p>
+      <p class="example"><span class="label">Example of an OPEN claim</span>This framework was written for public spending. Using it for a private company is an unverified <span class="nw">borrowing.<sup class="ref" data-status="open"><a href="#vi-du-10" aria-label="Source 10, OPEN"><span class="mark" aria-hidden="true"></span>10</a></sup></span><span class="sn" id="vi-du-10" data-status="open"><span class="sn-head"><span class="sn-n">10</span><span class="mark" aria-hidden="true"></span><span class="sn-status">OPEN</span></span><span class="sn-body"><a href="https://www.gov.uk/government/publications/guidance-on-developing-business-cases">HM Treasury</a> writes only for the public sector; no original source measuring how well the Five Case Model works in private companies has been found.</span></span></p>
+
+      <h2>Original sources first</h2>
+      <p>The preferred source is the original: the original paper or study, the official document of the issuing body, the specification. Summaries and articles that quote others are used only when the original is not available. If a source link did not open at the time of checking, the note says so.</p>
+
+      <h2>Last verified</h2>
+      <p>Each post shows the date it was published and the date it was last verified, which is the most recent date its sources were checked again. Sources can change version or lose their link; when a post is corrected against a new source, this date changes too.</p>
+
+      <h2>Written in Vietnamese first</h2>
+      <p>Posts are written and verified in Vietnamese first. The English version is a translation with the same claims, the same sources and the same statuses; it never carries a later verification date than the Vietnamese original.</p>
+
+      <h2>For agents</h2>
+      <p>Every post has a markdown version with the same content at the same path with <code>.md</code> added, including text descriptions of the figures and the source list. All posts for agents are listed at <a href="/llms.txt">/llms.txt</a>.</p>
+    </div>
+  </article>
+</Base>
+
+<style>
+  .article { margin-top: 3rem; }
+  .states .state { white-space: nowrap; font-weight: 700; color: var(--accent); }
+  .states .mark { margin-right: 0.5rem; }
+  .example .label { display: block; font-size: var(--s-12); font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.25rem; }
+  .example .label a { color: inherit; }
+</style>

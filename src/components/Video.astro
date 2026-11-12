@@ -1,16 +1,20 @@
 ---
+import { ui, type Lang } from '../lib/i18n';
+
 interface Props {
   id: string;
   title: string;
   duration: string;
   image?: string;
+  lang?: Lang;
 }
-const { id, title, duration, image = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg` } = Astro.props;
+const { id, title, duration, image = `https://i.ytimg.com/vi/${id}/maxresdefault.jpg`, lang = 'vi' } = Astro.props;
+const t = ui[lang];
 ---
 <figure class="video" id="video">
   <a class="video-link" href={`https://www.youtube.com/watch?v=${id}`} data-video={id}>
     <img src={image} alt={title} width="1280" height="720" decoding="async" />
-    <span class="play"><span class="play-icon" aria-hidden="true"></span>Xem video đi kèm <span class="no">{duration}</span></span>
+    <span class="play"><span class="play-icon" aria-hidden="true"></span>{t.watch} <span class="no">{duration}</span>{t.videoNote}</span>
   </a>
 </figure>
 <script>

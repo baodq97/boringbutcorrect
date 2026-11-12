@@ -1,5 +1,6 @@
 ---
 title: "Tiền công nghệ nên đọc thế nào: kế toán, TBM hay FinOps?"
+seoTitle: "Tiền công nghệ đọc thế nào: kế toán, TBM hay FinOps?"
 description: "IAS 38, IFRIC 2021, ASU 2018-15 và 2025-06, TBM Taxonomy 5.0.1 và FinOps: mỗi khung trả lời câu nào về tiền công nghệ, và lệch nhau ở đâu."
 station: 1
 published: 2026-11-08

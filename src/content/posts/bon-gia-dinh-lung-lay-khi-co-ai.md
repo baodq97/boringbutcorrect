@@ -1,5 +1,6 @@
 ---
 title: "Khi có AI, bốn giả định nào của quản trị công nghệ không còn đúng?"
+seoTitle: "Bốn giả định quản trị công nghệ mà AI làm lung lay"
 description: "AI không thay các framework quản trị công nghệ; nó thay đơn vị đo của chúng: từ seat sang kết quả, từ năm sang tháng, từ mức dùng sang nút thắt."
 station: 1
 published: 2026-11-12

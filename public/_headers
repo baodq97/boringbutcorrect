@@ -9,3 +9,8 @@
   Link: </llms.txt>; rel="describedby"; type="text/plain"
   Link: </sitemap-index.xml>; rel="sitemap"
   Link: </rss.xml>; rel="alternate"; type="application/rss+xml"
+
+/en
+  Link: </llms.txt>; rel="describedby"; type="text/plain"
+  Link: </sitemap-index.xml>; rel="sitemap"
+  Link: </en/rss.xml>; rel="alternate"; type="application/rss+xml"

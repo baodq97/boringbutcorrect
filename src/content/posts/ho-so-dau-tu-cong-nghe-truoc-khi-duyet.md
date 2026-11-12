@@ -1,5 +1,6 @@
 ---
 title: "Business case cho đầu tư công nghệ nên kiểm gì trước khi duyệt?"
+seoTitle: "Business case đầu tư công nghệ: kiểm gì trước khi duyệt"
 description: "Đọc lại Five Case Model, optimism bias và benefits management của chính phủ Anh, cùng Cranfield và CBP: gốc, định nghĩa, chỗ lệch, cách dùng cho một CIO."
 station: 1
 published: 2026-11-08

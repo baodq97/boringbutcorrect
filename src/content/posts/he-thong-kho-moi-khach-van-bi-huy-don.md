@@ -1,5 +1,6 @@
 ---
 title: "Đổi sang hệ thống kho mới, sao khách vẫn bị hủy đơn vì hết hàng?"
+seoTitle: "Hệ thống kho mới, sao khách vẫn bị hủy đơn hết hàng?"
 description: "Dự án đúng hạn, đúng ngân sách vẫn có thể không mang lại lợi ích. Sáu câu hỏi phải trả lời trước khi duyệt tiền cho một khoản đầu tư công nghệ."
 station: 1
 published: 2026-11-06

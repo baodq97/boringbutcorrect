@@ -1,4 +1,9 @@
+import { ui, type Lang } from './i18n';
+import { langOfPost, postUrl, type Post } from './posts';
+import { isoDate } from './stations';
+
 const BOM = '﻿';
+let L: (typeof ui)[Lang]['md'] = ui.vi.md;
 
 const decode = (s: string) =>
   s.replace(/&nbsp;/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&');
@@ -39,8 +44,7 @@ const gridOf = (body: string, name: string) => {
 const tableRow = (cells: string[]) => '| ' + cells.map((c) => c.replace(/\|/g, '\\|')).join(' | ') + ' |';
 const table = (rows: string[][]) =>
   [tableRow(rows[0]), tableRow(rows[0].map(() => '---')), ...rows.slice(1).map(tableRow)].join('\n');
-const red = (text: string) => '**' + text + '** [đỏ]';
-const WHOLE_ROW = '(cả hàng) ';
+const red = (text: string) => '**' + text + '** ' + L.red;
 
 // Columns line up with the stages above them, which is the point of these maps, so they stay a table.
 function vmapTable(body: string) {
@@ -55,27 +59,26 @@ function vmapTable(body: string) {
     const row = rows[rows.length - 1];
     if (has('vmap-steps')) {
       const steps = elementsOf(el.html);
-      row.cells.push(WHOLE_ROW + steps.map((s) => textOf(s.html) + (s.cls.includes('wait') ? ' (nét đứt)' : '')).join(' → '));
+      row.cells.push(L.wholeRow + steps.map((s) => textOf(s.html) + (s.cls.includes('wait') ? L.dashed : '')).join(' → '));
     } else if (has('gov-link')) {
       const [down, up] = elementsOf(el.html);
-      row.cells.push(WHOLE_ROW + '↓ ' + textOf(down.html) + '; ↑ ' + textOf(up.html));
+      row.cells.push(L.wholeRow + '↓ ' + textOf(down.html) + '; ↑ ' + textOf(up.html));
     } else {
       const text = has('hit') ? red(textOf(el.html)) : textOf(el.html);
-      if (has('vmap-w')) row.cells.push(WHOLE_ROW + text);
+      if (has('vmap-w')) row.cells.push(L.wholeRow + text);
       else if (has('vmap-2')) row.cells.push(text, text);
       else row.cells.push(text);
       if (has('vmap-s') && row.cells.length === 1) row.stages = true;
     }
   }
   const out = rows.map((r) => [r.label, ...r.cells, ...Array(Math.max(0, cols - r.cells.length)).fill('')]);
-  const head = rows[0].stages ? [] : [['Lớp', ...Array.from({ length: cols }, (_, i) => 'Cột ' + (i + 1))]];
-  if (rows[0].stages && !out[0][0]) out[0][0] = 'Lớp';
+  const head = rows[0].stages ? [] : [[L.layer, ...Array.from({ length: cols }, (_, i) => L.column + ' ' + (i + 1))]];
+  if (rows[0].stages && !out[0][0]) out[0][0] = L.layer;
   return table([...head, ...out]);
 }
 
-const CANVAS_GROUP: Record<string, string> = {
-  kp: 'Thứ cần để phục vụ thị trường', ka: 'Thứ cần để phục vụ thị trường', kr: 'Thứ cần để phục vụ thị trường',
-  vp: 'Giá trị', cr: 'Thị trường', ch: 'Thị trường', cs: 'Thị trường', co: 'Tiền', re: 'Tiền',
+const CANVAS_GROUP: Record<string, 'serve' | 'value' | 'market' | 'money'> = {
+  kp: 'serve', ka: 'serve', kr: 'serve', vp: 'value', cr: 'market', ch: 'market', cs: 'market', co: 'money', re: 'money',
 };
 
 function cellParts(el: El) {
@@ -86,34 +89,34 @@ function cellParts(el: El) {
 function canvasTable(body: string) {
   const cells = elementsOf(gridOf(body, 'canvas')).filter((el) => el.cls.includes('canvas-cell'));
   return table([
-    ['Nhóm', 'Ô', 'Nội dung'],
+    [L.group, L.cell, L.content],
     ...cells.map((el) => {
       const [name, content] = cellParts(el);
       const area = el.attrs.match(/grid-area:\s*(\w+)/)?.[1] ?? '';
-      return [CANVAS_GROUP[area] ?? '', el.cls.includes('hit') ? red(name) : name, content];
+      return [CANVAS_GROUP[area] ? L.canvas[CANVAS_GROUP[area]] : '', el.cls.includes('hit') ? red(name) : name, content];
     }),
   ]);
 }
 
 function porterTable(body: string) {
   let group = '';
-  const rows: string[][] = [['Nhóm', 'Hoạt động', 'Ví dụ']];
+  const rows: string[][] = [[L.group, L.activity, L.example]];
   for (const el of elementsOf(gridOf(body, 'porter'))) {
     if (el.cls.includes('porter-h')) group = textOf(el.html);
     else if (el.cls.includes('canvas-cell')) rows.push([group, ...cellParts(el)]);
-    else if (el.cls.includes('porter-m')) rows.push(['Kết quả', textOf(el.html), '']);
+    else if (el.cls.includes('porter-m')) rows.push([L.result, textOf(el.html), '']);
   }
   return table(rows);
 }
 
 function matrixTable(body: string) {
   const els = elementsOf(gridOf(body, 'dmx'));
-  const rows = [['Quyết định', ...els.filter((e) => e.cls.includes('dmx-h')).map((e) => textOf(e.html))]];
+  const rows = [[L.decision, ...els.filter((e) => e.cls.includes('dmx-h')).map((e) => textOf(e.html))]];
   const cols = rows[0].length - 1;
   for (const el of els) {
     if (el.cls.includes('dmx-n')) rows.push([textOf(el.html)]);
     else if (el.cls.includes('dmx-c')) rows[rows.length - 1].push(el.cls.includes('on') ? '●' : '');
-    else if (el.cls.includes('dmx-r')) rows[rows.length - 1].push(WHOLE_ROW + red(textOf(el.html)), ...Array(cols - 1).fill(''));
+    else if (el.cls.includes('dmx-r')) rows[rows.length - 1].push(L.wholeRow + red(textOf(el.html)), ...Array(cols - 1).fill(''));
   }
   return table(rows);
 }
@@ -138,7 +141,7 @@ function plainLines(body: string) {
     .map((l) => l.trim())
     .filter((l) => l && !/^<\/?(figure|div|ol|dl)\b[^>]*>$/.test(l) && !l.startsWith('<figure') && !l.includes('aria-hidden="true"'))
     .map((l) => {
-      const t = /^<[a-z]+ class="[^"]*\bhit\b/.test(l) ? textOf(l) + ' [đỏ]' : textOf(l);
+      const t = /^<[a-z]+ class="[^"]*\bhit\b/.test(l) ? textOf(l) + ' ' + L.red : textOf(l);
       if (/^<p class="[^"]*-h"/.test(l)) {
         grouped = true;
         return '- **' + t + '**';
@@ -157,17 +160,18 @@ function figureBody(body: string) {
   if (/<div class="nest"/.test(body)) return nestList(body);
   const label = body.match(/aria-label="([^"]+)"/)?.[1];
   const lines = plainLines(body);
-  return [label && 'Mô tả hình: ' + decode(label), lines].filter(Boolean).join('\n\n');
+  return [label && L.describe + ': ' + decode(label), lines].filter(Boolean).join('\n\n');
 }
 
 function figureToMarkdown(html: string) {
   const caption = html.match(/<figcaption>([\s\S]*?)<\/figcaption>/)?.[1] ?? '';
   const body = html.replace(/<figcaption>[\s\S]*?<\/figcaption>/, '');
-  const [no, ...rest] = textOf(caption).split(/(?<=^Hình \d+)\s/);
+  const [no, ...rest] = textOf(caption).split(new RegExp(`(?<=^${L.figure} \\d+)\\s`));
   return '**' + no + '.** ' + rest.join(' ') + '\n\n' + figureBody(body);
 }
 
-export function toMarkdown(body: string, site: URL) {
+export function toMarkdown(body: string, site: URL, lang: Lang = 'vi') {
+  L = ui[lang].md;
   const abs = (path: string) => new URL(path, site).href;
   return body
     .replace(/<figure[\s\S]*?<\/figure>/g, figureToMarkdown)
@@ -176,3 +180,20 @@ export function toMarkdown(body: string, site: URL) {
 }
 
 export const withBom = (text: string) => BOM + text;
+
+export function markdownTwin(post: Post, site: URL) {
+  const { data, body = '' } = post;
+  const lang = langOfPost(post);
+  const t = ui[lang].md;
+  const abs = (path: string) => new URL(path, site).href;
+  const meta = [
+    `URL: ${abs(postUrl(post))}`,
+    `${t.published}: ${isoDate(data.published)} · ${t.verified}: ${isoDate(data.verified)}`,
+    ...(data.image ? [`${t.image}: ${abs(data.image)}`] : []),
+    ...(data.video ? [`${t.video} (${data.video.duration}): https://www.youtube.com/watch?v=${data.video.id}`] : []),
+  ];
+  const list = data.sources.map((s) => `- [${s.title}](${s.url})`).join('\n');
+  const sources = list ? `\n\n## ${ui[lang].refs}\n\n${list}` : '';
+  const text = `# ${data.title}\n\n> ${data.description}\n\n${meta.join('\n')}\n\n${toMarkdown(body, site, lang)}${sources}\n`;
+  return new Response(withBom(text), { headers: { 'Content-Type': 'text/markdown; charset=utf-8' } });
+}

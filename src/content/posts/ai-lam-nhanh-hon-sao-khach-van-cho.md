@@ -1,5 +1,6 @@
 ---
 title: "AI giúp nhân viên làm nhanh hơn, sao khách vẫn chờ lâu như cũ?"
+seoTitle: "AI làm nhân viên nhanh hơn, sao khách vẫn chờ lâu?"
 description: "Lợi ích của AI nằm ở nút thắt của dòng giá trị, không ở số giờ tiết kiệm. Đo ở đâu, đo lúc nào để không kết luận sai khi đang ở đáy đường J."
 station: 1
 published: 2026-11-12

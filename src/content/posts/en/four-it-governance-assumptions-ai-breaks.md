@@ -154,7 +154,7 @@ This is the weakest claim, and the post says so plainly.
 
 **What has no evidence: where advantage lies.** The common answers (proprietary data, distribution channels, process integration) have no empirical study in the set of sources this post has read.[^24] Agrawal, Gans and Goldfarb ask the right question: *"What are the sustainable sources of competitive advantage as AI continues to improve?"* Their answer is behind a paywall; this post has not read it.[^25]
 
-**Our reading.** By Porter (post 01), lasting advantage lies in a system of activities that fit together, hard to imitate piece by piece. Applied to AI: the hard-to-copy thing may not be the AI but how work is reorganized around it, including which tasks go to the AI, who checks, and how outcomes are defined and verified. This is a hypothesis to test, not a conclusion.[^0]
+**Our reading.** By Porter ([post 01](/en/business-strategy-porter-rumelt-mintzberg)), lasting advantage lies in a system of activities that fit together, hard to imitate piece by piece. Applied to AI: the hard-to-copy thing may not be the AI but how work is reorganized around it, including which tasks go to the AI, who checks, and how outcomes are defined and verified. This is a hypothesis to test, not a conclusion.[^0]
 
 ## What to read carefully
 

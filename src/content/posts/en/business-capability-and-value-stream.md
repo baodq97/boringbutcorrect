@@ -227,7 +227,7 @@ The last column of the table is the analyst's judgment based on operational data
 
 ## Applying it: put a project list on the map
 
-The method below is how this post combines the sources. Steps 1-4 rest on the sources' definitions, but the order and the conditions are the post's; steps 5-6 are the post's reasoning.
+The method below is how this post combines the sources. Steps 1-4 rest on the sources' definitions, but the order and the conditions are the post's; steps 5-6 are the post's reasoning. Once a project has been placed on the map, the questions to check before approval are in the post [What should a technology business case check before approval?](/en/technology-business-case-what-to-check)
 
 1. **Pick one end-to-end value stream** for one specific recipient (a customer buying goods, a customer claiming compensation), named after the result that recipient receives, like BIZBOK's "Settle Claim" example. The public part of BIZBOK has no naming rule.
 2. **Split it into stages.** For each stage, record entrance and exit criteria, if your value stream really is sequential (see where BIZBOK and BACM differ above).

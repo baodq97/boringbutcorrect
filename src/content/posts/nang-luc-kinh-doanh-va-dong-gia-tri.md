@@ -226,7 +226,7 @@ Cột cuối của bảng là phán đoán của người phân tích dựa trê
 
 ## Áp dụng: đặt một danh sách dự án lên bản đồ
 
-Phương pháp dưới đây là cách bài này ghép các nguồn lại. Bước 1–4 dựa trên định nghĩa của nguồn, nhưng thứ tự và các điều kiện là của bài; bước 5–6 là suy luận của bài.
+Phương pháp dưới đây là cách bài này ghép các nguồn lại. Bước 1–4 dựa trên định nghĩa của nguồn, nhưng thứ tự và các điều kiện là của bài; bước 5–6 là suy luận của bài. Khi một dự án đã qua bản đồ, các câu cần kiểm trước khi duyệt nằm ở bài [Business case cho đầu tư công nghệ nên kiểm gì trước khi duyệt?](/ho-so-dau-tu-cong-nghe-truoc-khi-duyet)
 
 1. **Chọn một value stream đầu cuối** cho một người nhận cụ thể (khách mua hàng, khách đòi bồi thường), đặt tên theo kết quả người ấy nhận được, như ví dụ "Settle Claim" của BIZBOK. Phần công khai của BIZBOK không có quy tắc đặt tên.
 2. **Chia giai đoạn.** Mỗi giai đoạn ghi entrance và exit criteria, nếu value stream của bạn thật sự tuần tự (xem chỗ BIZBOK và BACM lệch nhau ở trên).

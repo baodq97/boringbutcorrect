@@ -153,7 +153,7 @@ Nhận định này có bài riêng: [AI giúp nhân viên làm nhanh hơn, sao 
 
 **Điều chưa có bằng chứng: lợi thế nằm ở đâu.** Câu trả lời hay gặp (dữ liệu riêng, kênh phân phối, tích hợp quy trình) chưa có nghiên cứu thực nghiệm nào trong tập nguồn bài đã đọc.[^24] Agrawal, Gans và Goldfarb đặt đúng câu hỏi: *"What are the sustainable sources of competitive advantage as AI continues to improve?"* Phần trả lời của họ nằm sau paywall; bài chưa đọc.[^25]
 
-**Cách đọc của bài.** Theo Porter (bài 01), lợi thế bền nằm ở một hệ thống hoạt động ăn khớp, khó bắt chước từng phần. Áp vào AI: thứ khó sao chép có thể không phải AI mà là cách tổ chức lại công việc quanh AI, gồm việc nào giao cho AI, ai kiểm, kết quả được định nghĩa và xác minh ra sao. Đây là giả thuyết để kiểm, không phải kết luận.[^0]
+**Cách đọc của bài.** Theo Porter ([bài 01](/chien-luoc-kinh-doanh-porter-rumelt-mintzberg)), lợi thế bền nằm ở một hệ thống hoạt động ăn khớp, khó bắt chước từng phần. Áp vào AI: thứ khó sao chép có thể không phải AI mà là cách tổ chức lại công việc quanh AI, gồm việc nào giao cho AI, ai kiểm, kết quả được định nghĩa và xác minh ra sao. Đây là giả thuyết để kiểm, không phải kết luận.[^0]
 
 ## Chỗ còn phải đọc cẩn thận
 

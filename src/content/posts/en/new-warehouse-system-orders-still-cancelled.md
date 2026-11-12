@@ -94,7 +94,7 @@ In the example, the project touches only one box of axis A: data and application
 <figcaption><span class="fig-no">Figure <span class="no">3</span></span> The three parts of a strategy according to Rumelt, applied to the example. The last line is what Porter stresses: choosing also means giving up.</figcaption>
 </figure>
 
-If you cannot say which choice the investment serves, then it is doing better what you already do. That may still be worth doing, but it is not strategy.
+If you cannot say which choice the investment serves, then it is doing better what you already do. That may still be worth doing, but it is not strategy. The post [What is business strategy, and why is a revenue target not a strategy?](/en/business-strategy-porter-rumelt-mintzberg) goes deeper into Porter, Rumelt and Mintzberg.
 
 ## Who may decide: governance is not management
 
@@ -107,7 +107,7 @@ IT governance is about setting who has the right to decide what, and who is acco
 <figcaption><span class="fig-no">Figure <span class="no">4</span></span> Two decision levels as ISACA distinguishes them. The highest-scoring option at the lower level must still fall within the thresholds the upper level sets.</figcaption>
 </figure>
 
-There is no single best way to divide decision rights. In a survey of more than 250 companies, the growth leaders leaned toward decentralization, and the profit leaders leaned toward centralization.[^6] The way you divide authority should serve the goal the company has chosen.
+There is no single best way to divide decision rights. In a survey of more than 250 companies, the growth leaders leaned toward decentralization, and the profit leaders leaned toward centralization.[^6] The way you divide authority should serve the goal the company has chosen. The post [How does IT governance differ from IT management, and who should decide what?](/en/it-governance-vs-it-management) goes into this boundary and how to design decision rights.
 
 ## A business case is a thinking process
 
@@ -125,7 +125,7 @@ The HM Treasury business case guidance says it plainly: a business case is a thi
 <figcaption><span class="fig-no">Figure <span class="no">5</span></span> From output to benefit. The bottom three cards are what HM Treasury requires for each benefit; the example filled in is an assumption.</figcaption>
 </figure>
 
-This framework is written for public spending. Using it for private companies is a borrowing that has not been verified.[^10]
+This framework is written for public spending. Using it for private companies is a borrowing that has not been verified.[^10] The post [What should a technology business case check before approval?](/en/technology-business-case-what-to-check) walks through each question to check before signing.
 
 ## What to read carefully
 

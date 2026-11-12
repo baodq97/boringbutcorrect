@@ -197,7 +197,7 @@ Ma trận năm quyết định nhân sáu archetype được bài này dùng nh�
 
 ## Chỗ còn phải đọc cẩn thận
 
-- **Dữ liệu archetype có từ 2004**, trước cloud, agile và AI. Các mô hình sản phẩm và platform hiện nay đẩy nhiều quyết định xuống team. Bài đề nghị đọc nó như khung chẩn đoán, không như benchmark hiện hành.[^17]
+- **Dữ liệu archetype có từ 2004**, trước cloud, agile và AI. Các mô hình sản phẩm và platform hiện nay đẩy nhiều quyết định xuống team. Bài đề nghị đọc nó như khung chẩn đoán, không như benchmark hiện hành.[^17] Những giả định nào của quản trị công nghệ lung lay khi có AI là chủ đề của bài [Khi có AI, bốn giả định nào của quản trị công nghệ không còn đúng?](/bon-gia-dinh-lung-lay-khi-co-ai)
 - **Chỉ đọc được bản preview của 38500:2024.** Foreword, Introduction, clause 1–3, mục lục và bibliography đã được kiểm; nội dung chi tiết của 11 principle và sáu element framework thì không.[^4][^16]
 - **COBIT 7 chưa rõ trạng thái.** ISACA gọi COBIT 7 là *"current and actively maintained COBIT offering"*, chỉ phát hành qua Publishing Platform.[^13] Ngày ra mắt thì mâu thuẫn: ISACA Support ghi 2026-11-19, một nguồn thứ cấp ghi 2026-10-27. Vòng đời COBIT 2019 kết thúc 2027-12-31.[^10]
 - **License hạn chế việc trích COBIT 7.** Dùng COBIT 7 trong AI systems, sản phẩm, đào tạo hay tư vấn cần license; cá nhân chỉ được dùng để tham khảo.[^12] Bài chọn không tái hiện nội dung COBIT 7 vì hạn chế ấy.

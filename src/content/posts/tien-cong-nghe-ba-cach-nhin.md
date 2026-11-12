@@ -137,7 +137,7 @@ Bảng do bài tổng hợp.[^17] Lộ trình "showback trước, chargeback sau
 
 FinOps Foundation định nghĩa FinOps là một cultural practice. FinOps hiện phủ Cloud, SaaS, Licensing, Data Center và các loại khác, và được đặt cạnh ITAM và AI Tokenomics trong Technology Value Management.[^14] Theo cách bài đọc định nghĩa, mọi người làm chủ cost và usage của mình, có một nhóm best-practice trung tâm hỗ trợ.[^19] Foundation nhấn mạnh: *"If it seems that FinOps is about saving money, think again."*[^19]
 
-Framework có bốn domain: Understand Usage & Cost, Quantify Business Value, Optimize Usage & Cost, Manage the FinOps Practice. Đây không phải các bước tuần tự.[^15b] FOCUS 1.4, phê chuẩn 2026-06-04, thêm Invoice Detail và Billing Period[^16b]; theo cách đọc của bài, mục đích là đối chiếu mức dùng với hóa đơn.[^17] FinOps Foundation thành lập 02/2019 từ Customer Advisory Board của Cloudability và nhập Linux Foundation 06/2020.[^20]
+Framework có bốn domain: Understand Usage & Cost, Quantify Business Value, Optimize Usage & Cost, Manage the FinOps Practice. Đây không phải các bước tuần tự.[^15b] FOCUS 1.4, phê chuẩn 2026-06-04, thêm Invoice Detail và Billing Period[^16b]; theo cách đọc của bài, mục đích là đối chiếu mức dùng với hóa đơn.[^17] FinOps Foundation thành lập 02/2019 từ Customer Advisory Board của Cloudability và nhập Linux Foundation 06/2020.[^20] Chi phí theo mức dùng của một tính năng AI có bài riêng: [Business case cho tính năng AI thường thiếu ba khoản chi nào?](/tinh-nang-ai-thieu-ba-khoan-chi)
 
 ## TBM và FinOps: chồng lấn ở đâu
 

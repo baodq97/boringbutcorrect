@@ -93,7 +93,7 @@ Trong ví dụ, dự án chỉ chạm một ô của trục A: dữ liệu và �
 <figcaption><span class="fig-no">Hình <span class="no">3</span></span> Ba phần của một chiến lược theo Rumelt, áp vào ví dụ. Dòng cuối là phần Porter nhấn mạnh: chọn cũng là bỏ.</figcaption>
 </figure>
 
-Không nói được khoản đầu tư phục vụ lựa chọn nào thì đó là làm tốt hơn việc đang làm. Việc ấy vẫn có thể đáng làm, nhưng nó không phải chiến lược.
+Không nói được khoản đầu tư phục vụ lựa chọn nào thì đó là làm tốt hơn việc đang làm. Việc ấy vẫn có thể đáng làm, nhưng nó không phải chiến lược. Bài [Chiến lược kinh doanh là gì, và vì sao mục tiêu doanh thu chưa phải chiến lược?](/chien-luoc-kinh-doanh-porter-rumelt-mintzberg) đi sâu vào Porter, Rumelt và Mintzberg.
 
 ## Ai được quyết: governance khác management
 
@@ -106,7 +106,7 @@ IT governance là việc định ra ai có quyền quyết điều gì và ai ch
 <figcaption><span class="fig-no">Hình <span class="no">4</span></span> Hai tầng quyết định theo cách ISACA phân biệt. Phương án điểm cao nhất ở tầng dưới vẫn phải nằm trong ngưỡng tầng trên đặt ra.</figcaption>
 </figure>
 
-Không có cách chia quyền tốt nhất chung. Trong một khảo sát hơn 250 doanh nghiệp, nhóm dẫn đầu về tăng trưởng nghiêng về phân quyền, nhóm dẫn đầu về lợi nhuận nghiêng về tập trung.[^6] Cách chia quyền nên phục vụ đúng mục tiêu công ty đã chọn.
+Không có cách chia quyền tốt nhất chung. Trong một khảo sát hơn 250 doanh nghiệp, nhóm dẫn đầu về tăng trưởng nghiêng về phân quyền, nhóm dẫn đầu về lợi nhuận nghiêng về tập trung.[^6] Cách chia quyền nên phục vụ đúng mục tiêu công ty đã chọn. Bài [IT governance khác IT management ở đâu, và ai nên quyết việc gì?](/quan-tri-cong-nghe-va-quyen-quyet-dinh) đi vào ranh giới này và cách thiết kế quyền quyết.
 
 ## Hồ sơ đầu tư là quá trình suy nghĩ
 
@@ -124,7 +124,7 @@ Bộ hướng dẫn business case của Bộ Tài chính Anh nói thẳng: hồ 
 <figcaption><span class="fig-no">Hình <span class="no">5</span></span> Từ đầu ra tới lợi ích. Ba thẻ dưới cùng là những gì HM Treasury yêu cầu cho mỗi lợi ích; ví dụ điền vào là giả định.</figcaption>
 </figure>
 
-Khung này viết cho chi tiêu công. Dùng nó cho doanh nghiệp tư nhân là một cách mượn chưa được kiểm chứng.[^10]
+Khung này viết cho chi tiêu công. Dùng nó cho doanh nghiệp tư nhân là một cách mượn chưa được kiểm chứng.[^10] Bài [Business case cho đầu tư công nghệ nên kiểm gì trước khi duyệt?](/ho-so-dau-tu-cong-nghe-truoc-khi-duyet) đi qua từng câu cần kiểm trước khi ký.
 
 ## Chỗ còn phải đọc cẩn thận
 

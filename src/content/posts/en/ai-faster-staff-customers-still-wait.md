@@ -157,7 +157,7 @@ The same kind of tool gives opposite results because the bottleneck is in a diff
 
 ### Four kinds of metric, four roles
 
-The Cranfield Benefits Dependency Network links technology to benefits through changes in ways of working. This post uses four layers, following a common presentation; the layer names appear only in secondary sources, and the original confirms the ends, ways, means structure.[^12] Place each metric of the model in its layer:
+The Cranfield Benefits Dependency Network links technology to benefits through changes in ways of working. This post uses four layers, following a common presentation; the layer names appear only in secondary sources, and the original confirms the ends, ways, means structure.[^12] Cranfield and the definition of a benefit are covered in the post [What should a technology business case check before approval?](/en/technology-business-case-what-to-check) Place each metric of the model in its layer:
 
 | Metric | Layer | Is it a benefit? | In the model |
 |---|---|---|---|
@@ -278,6 +278,8 @@ What the six rows share: the step AI makes cheaper is the *drafting* step; the b
 - **The TOC five steps were read through a training site**, not through Goldratt's book *The Goal*.[^2]
 
 ## Applying it: six questions for a business case with AI
+
+The three costs an AI feature's business case usually misses are in the post [Which three costs does an AI feature's business case usually miss?](/en/ai-feature-business-case-missing-costs)
 
 | # | Question | Answer for the lending model |
 |---|---|---|

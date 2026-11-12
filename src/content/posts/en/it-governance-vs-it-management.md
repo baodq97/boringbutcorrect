@@ -198,7 +198,7 @@ The post uses the matrix of five decisions by six archetypes as a tool for drawi
 
 ## What to read carefully
 
-- **The archetype data dates from 2004**, before cloud, agile and AI. Today's product and platform models push many decisions down to teams. The post suggests reading it as a diagnostic framework, not as a current benchmark.[^17]
+- **The archetype data dates from 2004**, before cloud, agile and AI. Today's product and platform models push many decisions down to teams. The post suggests reading it as a diagnostic framework, not as a current benchmark.[^17] Which assumptions of technology governance wobble once AI arrives is the subject of the post [With AI, which four assumptions of technology governance no longer hold?](/en/four-it-governance-assumptions-ai-breaks)
 - **Only the preview of 38500:2024 could be read.** The Foreword, Introduction, clauses 1–3, table of contents and bibliography were checked; the detailed content of the 11 principles and the six framework elements was not.[^4][^16]
 - **The status of COBIT 7 is unclear.** ISACA calls COBIT 7 the *"current and actively maintained COBIT offering"*, released only through the Publishing Platform.[^13] The release date is conflicting: ISACA Support says 2026-11-19, one secondary source says 2026-10-27. The COBIT 2019 lifecycle ends 2027-12-31.[^10]
 - **The license restricts quoting COBIT 7.** Using COBIT 7 in AI systems, products, training or consulting needs a license; individuals may use it for reference only.[^12] The post chooses not to reproduce COBIT 7 content because of that restriction.

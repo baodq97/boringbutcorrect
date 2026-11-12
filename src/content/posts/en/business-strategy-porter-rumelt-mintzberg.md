@@ -109,7 +109,7 @@ Where they agree: Porter and Rumelt both treat strategy as a choice that exclude
 - **A goal.** "Grow 20%" is not a strategy by Porter or by Rumelt.[^1] In our reading, a goal says what you want to reach; it does not say what you will choose and what you will give up.[^12]
 - **A plan.** Rumelt separates strategy from planning.[^3] For Mintzberg and Waters, realized strategy is a pattern in action, not a document.[^15]
 - **Industry analysis.** Five Forces answers whether an industry is attractive; positioning answers where you stand within it.[^17] Industry structure and a company's relative position are two drivers of profitability.[^5] Technological innovation can change entry and substitution.[^5]
-- **Business model and tactics.** A business model is *"a reflection of the firm's realized strategy"*; strategy is a contingent plan about which model to use; tactics are the remaining choices inside the chosen model.[^8] So a Business Model Canvas describes a business model, not a strategy.[^18]
+- **Business model and tactics.** A business model is *"a reflection of the firm's realized strategy"*; strategy is a contingent plan about which model to use; tactics are the remaining choices inside the chosen model.[^8] So a Business Model Canvas describes a business model, not a strategy.[^18] The post [What is a business model, and how does it differ from strategy and process?](/en/business-model-vs-strategy-and-process) goes into this boundary.
 - **Balanced Scorecard and OKR.** Both take strategy as an input and do not diagnose the challenge. A set of OKRs with no diagnosis above it is just a list of goals.[^19]
 
 ## Where technology stands in this definition

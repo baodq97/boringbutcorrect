@@ -138,7 +138,7 @@ Table compiled by this post.[^17] The "showback first, chargeback later" path is
 
 The FinOps Foundation defines FinOps as a cultural practice. FinOps now covers Cloud, SaaS, Licensing, Data Center and other categories, and sits next to ITAM and AI Tokenomics in Technology Value Management.[^14] In the post's reading of the definition, everyone owns the cost and usage of their own work, with a central best-practice group supporting them.[^19] The Foundation stresses: *"If it seems that FinOps is about saving money, think again."*[^19]
 
-The framework has four domains: Understand Usage & Cost, Quantify Business Value, Optimize Usage & Cost, Manage the FinOps Practice. These are not sequential steps.[^15b] FOCUS 1.4, ratified 2026-06-04, adds Invoice Detail and Billing Period[^16b]; in our reading, the purpose is to reconcile usage with invoices.[^17] The FinOps Foundation was founded in 02/2019 from the Customer Advisory Board of Cloudability and joined the Linux Foundation in 06/2020.[^20]
+The framework has four domains: Understand Usage & Cost, Quantify Business Value, Optimize Usage & Cost, Manage the FinOps Practice. These are not sequential steps.[^15b] FOCUS 1.4, ratified 2026-06-04, adds Invoice Detail and Billing Period[^16b]; in our reading, the purpose is to reconcile usage with invoices.[^17] The FinOps Foundation was founded in 02/2019 from the Customer Advisory Board of Cloudability and joined the Linux Foundation in 06/2020.[^20] The usage-based cost of an AI feature has its own post: [Which three costs does an AI feature's business case usually miss?](/en/ai-feature-business-case-missing-costs)
 
 ## TBM and FinOps: where they overlap
 

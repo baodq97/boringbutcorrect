@@ -30,7 +30,7 @@ Từ định nghĩa này, luận án dựng một ontology gồm bốn trụ (pi
 
 ## Ba lớp: chiến lược, business model, quy trình
 
-Osterwalder (Figure 6) xếp ba lớp, ở ba mức trừu tượng khác nhau quanh cùng một câu hỏi: công ty kiếm tiền thế nào.[^4]
+Osterwalder (Figure 6) xếp ba lớp, ở ba mức trừu tượng khác nhau quanh cùng một câu hỏi: công ty kiếm tiền thế nào.[^4] Lớp trên cùng có bài riêng: [Chiến lược kinh doanh là gì, và vì sao mục tiêu doanh thu chưa phải chiến lược?](/chien-luoc-kinh-doanh-porter-rumelt-mintzberg)
 
 <figure class="fig fig-gov" aria-label="Ba lớp xếp chồng: chiến lược, business model, quy trình; business model dịch chiến lược xuống và đánh giá chiến lược ngược lên.">
 <div class="gov-band"><p class="gov-who">Chiến lược<small>Planning</small></p><p class="gov-verbs">Strategic layer</p><p class="gov-out">Tầm nhìn, mục tiêu</p></div>
@@ -145,7 +145,7 @@ Hệ quả: nếu chỉ dùng value chain của Porter để đọc mọi doanh 
 
 ## "Capability" của Osterwalder không phải business capability
 
-Trong ontology, capability là *"the ability to execute a repeatable pattern of actions that is necessary in order to create value for the customer"*.[^3] OMG BACM 1.1 định nghĩa business capability là khả năng tạo ra một kết quả *mà không nói kết quả ấy được tạo ra thế nào*.[^15] "Pattern of actions" là một cách làm, gần với CapabilityBehavior của BACM hơn.[^15] Khi một dự án dùng chữ "capability" từ canvas để nối sang capability map của kiến trúc nghiệp vụ, cần dịch lại, không chép thẳng.
+Trong ontology, capability là *"the ability to execute a repeatable pattern of actions that is necessary in order to create value for the customer"*.[^3] OMG BACM 1.1 định nghĩa business capability là khả năng tạo ra một kết quả *mà không nói kết quả ấy được tạo ra thế nào*.[^15] "Pattern of actions" là một cách làm, gần với CapabilityBehavior của BACM hơn.[^15] Khi một dự án dùng chữ "capability" từ canvas để nối sang capability map của kiến trúc nghiệp vụ, cần dịch lại, không chép thẳng. Business capability theo nghĩa của kiến trúc nghiệp vụ có bài riêng: [Business capability và value stream: định nghĩa gốc, chỗ lệch, và cách dùng](/nang-luc-kinh-doanh-va-dong-gia-tri).
 
 ## Chỗ còn phải đọc cẩn thận
 

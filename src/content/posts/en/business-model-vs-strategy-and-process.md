@@ -31,7 +31,7 @@ From this definition, the thesis builds an ontology of four pillars and nine ele
 
 ## Three layers: strategy, business model, process
 
-Osterwalder (Figure 6) arranges three layers, at three levels of abstraction around the same question: how the company earns money.[^4]
+Osterwalder (Figure 6) arranges three layers, at three levels of abstraction around the same question: how the company earns money.[^4] The top layer has its own post: [What is business strategy, and why is a revenue target not a strategy?](/en/business-strategy-porter-rumelt-mintzberg)
 
 <figure class="fig fig-gov" aria-label="Three stacked layers: strategy, business model, process; the business model translates strategy downward and evaluates strategy upward.">
 <div class="gov-band"><p class="gov-who">Strategy<small>Planning</small></p><p class="gov-verbs">Strategic layer</p><p class="gov-out">Vision, goals</p></div>
@@ -146,7 +146,7 @@ The consequence: if you use only Porter's value chain to read every business, yo
 
 ## Osterwalder's "capability" is not a business capability
 
-In the ontology, a capability is *"the ability to execute a repeatable pattern of actions that is necessary in order to create value for the customer"*.[^3] OMG BACM 1.1 defines a business capability as the ability to produce an outcome *without saying how that outcome is produced*.[^15] A "pattern of actions" is a way of doing things, closer to BACM's CapabilityBehavior.[^15] When a project takes the word "capability" from the canvas to connect with the capability map in business architecture, it needs to be retranslated, not copied directly.
+In the ontology, a capability is *"the ability to execute a repeatable pattern of actions that is necessary in order to create value for the customer"*.[^3] OMG BACM 1.1 defines a business capability as the ability to produce an outcome *without saying how that outcome is produced*.[^15] A "pattern of actions" is a way of doing things, closer to BACM's CapabilityBehavior.[^15] When a project takes the word "capability" from the canvas to connect with the capability map in business architecture, it needs to be retranslated, not copied directly. Business capability in the business architecture sense has its own post: [Business capability and value stream: the original definitions, where they differ, and how to use them](/en/business-capability-and-value-stream).
 
 ## What to read carefully
 

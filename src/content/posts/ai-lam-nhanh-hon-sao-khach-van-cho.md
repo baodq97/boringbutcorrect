@@ -156,7 +156,7 @@ Cùng một loại công cụ cho kết quả trái ngược vì vị trí nút 
 
 ### Bốn loại chỉ số, bốn vai trò
 
-Benefits Dependency Network của Cranfield nối công nghệ với lợi ích qua các thay đổi trong cách làm. Bài dùng bốn lớp theo một cách trình bày phổ biến; tên các lớp chỉ thấy ở nguồn thứ cấp, nguồn gốc xác nhận cấu trúc ends, ways, means.[^12] Đặt mỗi chỉ số của mô hình vào đúng lớp của nó:
+Benefits Dependency Network của Cranfield nối công nghệ với lợi ích qua các thay đổi trong cách làm. Bài dùng bốn lớp theo một cách trình bày phổ biến; tên các lớp chỉ thấy ở nguồn thứ cấp, nguồn gốc xác nhận cấu trúc ends, ways, means.[^12] Cranfield và định nghĩa lợi ích nằm ở bài [Business case cho đầu tư công nghệ nên kiểm gì trước khi duyệt?](/ho-so-dau-tu-cong-nghe-truoc-khi-duyet) Đặt mỗi chỉ số của mô hình vào đúng lớp của nó:
 
 | Chỉ số | Lớp | Có phải lợi ích? | Trong mô hình |
 |---|---|---|---|
@@ -277,6 +277,8 @@ Bảng dưới là mẫu bài suy ra từ cơ chế, chưa có số đo cho từ
 - **Năm bước TOC đọc qua trang đào tạo**, không qua sách *The Goal* của Goldratt.[^2]
 
 ## Áp dụng: sáu câu cho business case có AI
+
+Ba khoản chi mà business case của tính năng AI hay thiếu nằm ở bài [Business case cho tính năng AI thường thiếu ba khoản chi nào?](/tinh-nang-ai-thieu-ba-khoan-chi)
 
 | # | Câu hỏi | Trả lời cho mô hình cho vay |
 |---|---|---|

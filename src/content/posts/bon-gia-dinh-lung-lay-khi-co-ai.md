@@ -126,6 +126,8 @@ Bài học cho bên mua không nằm ở chuyện OpenAI sai. Nó nằm ở ch�
 - **Governance:** giao trước quyền đổi model trong một khung điều kiện (đánh giá đạt, có đường quay về), thay vì duyệt từng lần. AI Playbook của chính phủ Anh đặt cập nhật model vào *"a managed release process"* có thể quay về bản trước.[^14] NIST yêu cầu có cơ chế và người chịu trách nhiệm cho việc thay, ngắt và khai tử hệ AI.[^15]
 - **Kế toán:** coi phần gắn với một model là chi phí vòng đời ngắn; chỉ xét vốn hóa phần dữ liệu và tích hợp nghiệp vụ sống lâu hơn model. Đây là suy luận từ IAS 38, chưa có hướng dẫn chính thức.[^8][^0]
 
+Con số cụ thể cho một tính năng (chi phí mỗi việc, lịch khai tử từng nhà cung cấp, phần nào nên vốn hóa) nằm ở bài [Business case cho tính năng AI thường thiếu ba khoản chi nào?](/tinh-nang-ai-thieu-ba-khoan-chi)
+
 ## 3. Thứ dễ đo là thứ sai
 
 Với phần mềm truyền thống, chức năng và giá trị đi gần nhau: hệ thống chạy thì quy trình chạy. Với AI, giữa "AI làm được" và "doanh nghiệp được lợi" có một khoảng mà AI không tự lấp. DORA 2025 gọi AI là *"amplifier"*: nó phóng đại điểm mạnh và điểm yếu sẵn có, tăng throughput nhưng vẫn tăng instability.[^16] Báo cáo ROI 2026 của DORA đặt tên cho phần việc kiểm thêm là *"verification tax"*, và đề xuất đo AI *"by the bottlenecks it clears"*.[^17]
